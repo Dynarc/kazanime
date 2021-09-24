@@ -19,7 +19,7 @@
         <nav>
             <ul class="RO">
 
-                <li><a href="">Accueil</a></li>
+                <li><a href="<?=URL?>accueil">Accueil</a></li>
                 <li><a href="">Liste des animes</a></li>
                 <li><a href="">Proposer un anime</a></li>
                 <li><a href="">Mon compte</a></li>
@@ -46,7 +46,7 @@
         <nav>
             <ul>
 
-                <li><a href="">Accueil</a></li>
+                <li><a href="<?=URL?>accueil">Accueil</a></li>
                 <li><a href="">Liste des animes</a></li>
                 <li><a href="">Proposer un anime </a></li>
                 <li><a href="">Mon compte</a></li>
