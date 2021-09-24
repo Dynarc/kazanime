@@ -1,10 +1,12 @@
 let carousel = document.querySelectorAll('.carousel-frame');
 let nextButton = document.querySelector('.fa-chevron-right');
 let previousButton = document.querySelector('.fa-chevron-left');
+let openSearch = document.querySelector('.fa-search');
+let closeSearch = document.querySelector('.fa-times');
+let search = document.querySelector('.search');
 
 
 function nextFrame(){
-    // select all the elements of the carousel
     carousel.forEach(element => {
         let right = element.style.right;
         let left = element.style.left;
@@ -32,8 +34,20 @@ function previousFrame(){
     });
 }
 
+function displaySearchBar(){
+    search.style.display = 'flex';
+}
+
+function hideSearchBar(){
+    search.style.display = 'none';
+}
 
 
 
+// event carousel
 nextButton.addEventListener('click', nextFrame);
 previousButton.addEventListener('click', previousFrame);
+
+// event nav's search bar
+openSearch.addEventListener('click', displaySearchBar);
+closeSearch.addEventListener('click', hideSearchBar);

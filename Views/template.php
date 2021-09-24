@@ -23,7 +23,16 @@
                 <li><a href="">Liste des animes</a></li>
                 <li><a href="">Proposer un anime</a></li>
                 <li><a href="">Mon compte</a></li>
-                <li><i class="fas fa-search"></i></li>
+                <li>
+                    <i class="fas fa-search"></i>
+                    <form action="" class="search">
+                        <i class="fas fa-times"></i>
+                        <div>
+                            <input type="text">
+                            <input type="submit" value="Rechercher">
+                        </div>
+                    </form>
+                </li>
 
             </ul>
         </nav>

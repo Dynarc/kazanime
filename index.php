@@ -15,6 +15,9 @@ if(empty($_GET['page'])){
         switch ($url[0]){
 
             case 'accueil':
+                // a changer quand back ready
+                require_once 'views/accueil.view.php';
+                break;
                 
 
             

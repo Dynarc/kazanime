@@ -23,6 +23,32 @@ a{
     color: var(--main-color);
 }
 
+input{
+    font-family: 'Noto Sans JP', cursive;
+}
+
+input[type='text']{
+    background: var(--dark-bg-color);
+    border: none;
+    height: 32px;
+    color: var(--main-color);
+}
+
+input[type='text']:focus{
+    border: unset;
+    border: var(--main-color) 2px solid;
+    outline: unset;
+}
+
+input[type='submit']{
+    color: var(--main-color);
+    border: none;
+    border-radius: 0;
+    background: var(--dark-bg-color);
+    padding: 10px;
+    cursor: pointer;
+}
+
 
 /* Body */
 body{
@@ -77,6 +103,50 @@ nav ul li a{
 
 nav ul li i{
     font-size: 30px;
+}
+
+/* Nav search bar */
+.search{
+    position: fixed;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    padding: 1%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+    background: rgb(0,0,0,0.8);
+}
+
+.search div{
+    position: fixed;
+    left: 40%;
+    right: 40%;
+    top: 43%;
+    bottom: 43%;
+    background: var(--main-bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.search i{
+    position: absolute;
+    z-index: 4;
+    top: 58%;
+    right: 49%;
+}
+
+.search input[type='text']{
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-bottom: 9px;
+}
+.search .fas, .fa-search{
+    cursor: pointer;
 }
 
 /* Footer */
