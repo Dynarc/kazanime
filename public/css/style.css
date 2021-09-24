@@ -13,7 +13,7 @@
     --dark-bg-color: #0D1940;
 }
 
-.RO a, p{
+.RO, .RO a, .RO p{
     font-family: "Reggae One", cursive;
 }
 
@@ -80,4 +80,56 @@ nav ul li i{
 
 footer nav ul li a{
     font-size: 25px;
+}
+
+
+/* Accueil */
+
+.vedette{
+    display: flex;
+    flex-direction: column;
+    width: calc(2/3*100%);
+    margin: auto;
+    background: var(--secondary-bg-color);
+    padding: 3% 2%;
+}
+
+.vedette h2{
+    font-size: 40px;
+    font-weight: normal;
+    margin: 1% 0%;
+}
+
+.vedette div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.vedette .fas{
+    font-size: 50px;
+    -webkit-text-stroke: 1.5px var(--contrast-main-color);
+}
+
+.carousel-frame{
+    display: flex;
+    flex-direction: column;
+    min-width: 46%;
+    padding: 2%;
+    margin: 0px;
+    position: relative;
+    right: 0%;
+    transition: 1s ease-out;
+}
+
+.carousel-frame img{
+    width: 100%;
+}
+
+.carousel-frame figcaption{
+    text-align: center;
+    background: rgb(0, 0, 0, 0.6);
+
 }
