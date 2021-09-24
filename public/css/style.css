@@ -49,6 +49,23 @@ input[type='submit']{
     cursor: pointer;
 }
 
+/* Scroll Bar */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--contrast-main-color);
+}
+
 
 /* Body */
 body{
@@ -77,6 +94,14 @@ body{
 
 #brand a{
     font-size: small;
+}
+
+header nav ul li>i{
+    color: var(--contrast-main-color);
+}
+
+header nav a{
+    color: var(--contrast-main-color);
 }
 
 nav{
