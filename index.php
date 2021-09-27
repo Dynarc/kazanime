@@ -19,7 +19,9 @@ if(empty($_GET['page'])){
                 require_once 'views/accueil.view.php';
                 break;
                 
-
+            case 'liste-anime':
+                require_once 'views/listeAnime.view.php';
+                break;
             
 
             default:

@@ -1,10 +1,10 @@
-/* Feuille de style de KAZANIME */
+/* Stylesheet of KAZANIME */
 
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Reggae+One&display=swap');
 
 
-/* Var and global class */
+/* Var and global classes */
 :root{
     --main-color: #F2C335;
     --contrast-main-color: #D93223;
@@ -16,6 +16,7 @@
 .RO, .RO a, .RO p{
     font-family: "Reggae One", cursive;
     font-weight: normal;
+    font-size: 25px;
 }
 
 a{
@@ -27,20 +28,20 @@ input{
     font-family: 'Noto Sans JP', cursive;
 }
 
-input[type='text']{
+input[type='text'], input[type='date'], select{
     background: var(--dark-bg-color);
     border: none;
-    height: 32px;
+    height: 24px;
     color: var(--main-color);
+    font-size: 15px;
 }
 
 input[type='text']:focus{
-    border: unset;
     border: var(--main-color) 2px solid;
     outline: unset;
 }
 
-input[type='submit']{
+input[type='submit'], button{
     color: var(--main-color);
     border: none;
     border-radius: 0;
@@ -109,6 +110,7 @@ nav{
     display: inline-block;
     width: 100%;
     box-shadow: 0px 0px 40px rgb(0, 0, 0, 0.6);
+    position: relative;
 }
 
 nav ul{
@@ -162,7 +164,6 @@ nav ul li i{
     position: absolute;
     z-index: 4;
     top: 58%;
-    right: 49%;
 }
 
 .search input[type='text']{
@@ -170,6 +171,11 @@ nav ul li i{
     padding-right: 12px;
     margin-bottom: 9px;
 }
+
+.search input[type='text']:focus{
+    margin-bottom: 5px;
+}
+
 .search .fas, .fa-search{
     cursor: pointer;
 }
@@ -284,4 +290,137 @@ footer nav ul li a{
 
 .last-episode-added .last-added div small{
     font-size: 15px;
+}
+
+
+/* Liste des animes */
+
+#anime-list{
+    display: flex;
+}
+
+#anime-list-search{
+    background: var(--secondary-bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 20%;
+    padding: 1%;
+    max-height: 500px;
+    position: sticky;
+    top: 0px;
+    box-shadow: 0px 0px 40px rgb(0, 0, 0, 0.6);
+}
+
+#anime-list-search>p{
+    margin: auto;
+    padding: 10% 0%;
+}
+
+#anime-list-search>div{
+    display: flex;
+    margin: 5% 0px;
+    width: 100%;
+    align-items: baseline;
+}
+
+#anime-list-search>div>input, #anime-list-search>div>select{
+    width: 100%;
+    margin-left: 5px;
+}
+
+#anime-list-search>button{
+    background-color: var(--secondary-bg-color);
+    display: flex;
+    align-items: flex-start;
+    margin: auto;
+}
+
+#anime-list-search>button>i{
+    margin: 0px 10px;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator{
+    padding: 0;
+    margin: 0;
+    color: var(--main-color);
+    filter: invert(100%) sepia() saturate(10000%) hue-rotate(320deg);
+}
+
+#anime-list-search>input[type='submit']{
+    margin: auto;
+    margin-top: 3%;
+}
+
+#anime-list-search-date{
+    display: flex;
+    flex-direction: column;
+}
+
+#anime-list-search-date>div{
+    display: flex;
+    width: 100%;
+}
+
+#anime-list-search-date>div>span{
+    margin: 0px 5px;
+}
+
+.anime-line{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
+    align-items: center;
+    padding: 1% 0%;
+}
+
+.anime-line:nth-child(even){
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.desc-list{
+    align-items: center;
+}
+
+.anime-line p{
+    text-align: center;
+}
+
+.anime-line>img{
+    grid-column: 1;
+    margin: auto;
+    padding: 2%;
+}
+
+.anime-line>div{
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 15px;
+}
+
+.anime-line>div>h2{
+    text-transform: uppercase;
+    margin: 0px;
+}
+
+.anime-line>div>p{
+    margin: 0px;
+    text-align: unset;
+}
+
+.anime-line>p:first-of-type{
+    grid-column: 3;
+}
+
+.anime-line>p:last-of-type{
+    grid-column: 4;
+}
+
+.nav-page{
+    display: flex;
+    justify-content: space-evenly;
+    width: 25%;
+    font-size: 25px;
+    margin: 3% auto;
 }

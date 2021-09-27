@@ -20,7 +20,7 @@
             <ul class="RO">
 
                 <li><a href="<?=URL?>accueil">Accueil</a></li>
-                <li><a href="">Liste des animes</a></li>
+                <li><a href="<?=URL?>liste-anime">Liste des animes</a></li>
                 <li><a href="">Proposer un anime</a></li>
                 <li><a href="">Mon compte</a></li>
                 <li>
@@ -47,7 +47,7 @@
             <ul>
 
                 <li><a href="<?=URL?>accueil">Accueil</a></li>
-                <li><a href="">Liste des animes</a></li>
+                <li><a href="<?=URL?>liste-anime">Liste des animes</a></li>
                 <li><a href="">Proposer un anime </a></li>
                 <li><a href="">Mon compte</a></li>
                 <li><a href="">A propos</a></li>
@@ -58,5 +58,6 @@
     </footer>
 
     <script src="public/js/script.js"></script>
+    <script src="public/js/<?=str_replace(' ','-',$titre)?>/script.js"></script>
 </body>
 </html>
