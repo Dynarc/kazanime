@@ -1,19 +1,20 @@
+drop database kazanime;
 create database kazanime CHARACTER SET utf8 COLLATE utf8_general_ci;
 use kazanime;
 
 create table tag(
 	id_tag int auto_increment primary key not null,
-    nom_tag varchar(50)
+    nom varchar(50)
 );
 
 create table genre(
 	id_genre int auto_increment primary key not null,
-    nom_genre varchar(50)
+    nom varchar(50)
 );
 
 create table studio(
 	id_studio int auto_increment primary key not null,
-    nom_studio varchar(50)
+    nom varchar(50)
 );
 
 create table detenir(
@@ -36,34 +37,34 @@ create table disposer(
 
 create table anime(
 	id_anime int auto_increment primary key not null,
-    nom_anime varchar(100),
-    nom_alt_anime text,
-    image_anime varchar(150),
-    image_miniature_anime varchar(150),
-    date_debut_anime date,
-    date_fin_anime date,
-    synopsis_anime text,
-    nombre_episode_anime int,
-    duree_episode_anime int
+    nom varchar(100),
+    nom_alt text,
+    image varchar(150),
+    image_miniature varchar(150),
+    date_debut date,
+    date_fin date,
+    synopsis text,
+    nombre_episode int,
+    duree_episode int
 );
 
 create table episode(
 	id_episode int auto_increment primary key not null,
-    nom_episode varchar(100),
-    numero_episode float,
+    nom varchar(100),
+    numero float,
     id_anime int
 );
 
 create table diffuseur(
 	id_diffuseur int auto_increment primary key not null,
-    nom_diffuseur varchar(50),
-    lien_diffuseur varchar(100)
+    nom varchar(50),
+    lien varchar(100)
 );
 
 create table diffuser(
 	id_anime int,
     id_diffuseur int,
-    lien_anime varchar(150),
+    lien varchar(150),
     primary key(id_anime, id_diffuseur)
 );
 
@@ -76,27 +77,27 @@ create table retransmettre(
 
 create table commentaire(
 	id_commentaire int auto_increment primary key not null,
-    contenu_commentaire text,
-    date_commentaire datetime default current_timestamp,
+    contenu text,
+    date datetime default current_timestamp,
     id_user int,
     id_anime int
 );
 
 create table user(
 	id_user int auto_increment primary key not null,
-    pseudo_user varchar(50),
-	mail_user varchar(150),
-    mdp_user varchar(100),
-    mdp_temp_user varchar(100) default null,
-    date_inscription_user datetime default current_timestamp,
+    pseudo varchar(50),
+	mail varchar(150),
+    mdp varchar(100),
+    mdp_temp varchar(100) default null,
+    date_inscription datetime default current_timestamp,
     id_role int
 );
 
 create table voir(
 	id_anime int,
     id_user int,
-    note_anime int,
-    memo_anime text,
+    note int,
+    memo text,
     nombre_episode_vu int,
     date_ajout datetime default current_timestamp,
     primary key(id_anime, id_user)
@@ -104,9 +105,9 @@ create table voir(
 
 create table liste(
 	id_liste int auto_increment primary key not null,
-    nom_liste varchar(50),
-    description_liste varchar(150),
-    date_creation_liste varchar(50),
+    nom varchar(50),
+    description varchar(150),
+    date_creation varchar(50),
     id_user int
 );
 
@@ -124,45 +125,45 @@ create table partager(
 
 create table proposition(
 	id_proposition int auto_increment primary key not null,
-    nom_proposition varchar(100),
-    date_proposition datetime default current_timestamp,
-    nom_alt_proposition text,
-    nombre_episode_proposition int,
-    duree_episode_proposition int,
-    synopsis_proposition text,
-    studio_proposition varchar(50),
-    date_debut_proposition date,
-    date_fin_proposition date,
-    diffuseur_proposition varchar(150),
-    genre_proposition varchar(200),
-    tag_proposition varchar(200),
+    nom varchar(100),
+    date datetime default current_timestamp,
+    nom_alt text,
+    nombre_episode int,
+    duree_episode int,
+    synopsis text,
+    studio varchar(50),
+    date_debut date,
+    date_fin date,
+    diffuseur varchar(150),
+    genre varchar(200),
+    tag varchar(200),
     id_user int,
     id_statut int
 );
 
 create table statut_proposition(
 	id_statut int auto_increment primary key not null,
-    nom_statut varchar(50)
+    nom varchar(50)
 );
 
 create table role(
 	id_role int auto_increment primary key not null,
-    nom_role varchar(50)
+    nom varchar(50)
 );
 
 create table sanction(
 	id_sanction int auto_increment primary key not null,
-    raison_sanction varchar(50),
-    date_sanction datetime default current_timestamp,
-    duree_sanction int,
-    commentaire_sanction text,
+    raison varchar(50),
+    date datetime default current_timestamp,
+    duree int,
+    commentaire text,
     id_type_sanction int,
     id_user int
 );
 
 create table type_sanction(
 	id_type_sanction int auto_increment primary key not null,
-    nom_type_sanction varchar(50)
+    nom varchar(50)
 );
 
 alter table detenir

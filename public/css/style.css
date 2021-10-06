@@ -179,27 +179,29 @@ nav ul li i{
 
 .search div{
     position: fixed;
-    left: 40%;
-    right: 40%;
-    top: 43%;
-    bottom: 43%;
+    bottom: 40%;
     background: var(--main-bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 20%;
+    height: 20%;
+    min-width: 200px;
+    min-height: 150px;
 }
 
 .search i{
     position: absolute;
     z-index: 4;
-    top: 58%;
+    top: 60%;
 }
 
 .search input[type='text']{
     padding-left: 12px;
     padding-right: 12px;
     margin-bottom: 9px;
+    width: 60%;
 }
 
 .search input[type='text']:focus{
