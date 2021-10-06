@@ -1,58 +1,60 @@
 <?php ob_start();?>
 
 <section id="anime-list">
-    <form action="" id="anime-list-search">
-        <p class="RO">Recherche</p>
+    <div id="form-content">
 
-        <div>
-            <label for="">Nom&nbsp;:</label>
-            <input type="text">
-        </div>
+        <form action="" id="anime-list-search">
+            <p class="RO">Recherche</p>
 
-        <div>
-            <label for="">Trier&nbsp;par&nbsp;:</label>
-            <select name="" id="">
-                <option value=""></option>
-                <option value="">A-Z</option>
-                <option value="">Z-A</option>
-            </select>
-        </div>
-
-        <button type="button">Recherche avancée <i class="fas fa-sort-down"></i></button>
-
-        <div id="anime-list-search-date">
-            <label for="">Date&nbsp;comprise&nbsp;entre</label>
             <div>
-                <input type="date">
-                <span> et </span>
-                <input type="date">
+                <label for="">Nom&nbsp;:</label>
+                <input type="text">
             </div>
-            
-        </div>
 
-        <div>
-            <label for="">Genre&nbsp;:</label>
-            <select name="" id="">
-                <option value="">Action</option>
-                <option value="">Mystère</option>
-                <option value="">Horreur</option>
-            </select>
-        </div>
+            <div>
+                <label for="">Trier&nbsp;par&nbsp;:</label>
+                <select name="" id="">
+                    <option value=""></option>
+                    <option value="">A-Z</option>
+                    <option value="">Z-A</option>
+                </select>
+            </div>
 
-        <div>
-            <label for="">Tag&nbsp;:</label>
-            <select name="" id="">
-                <option value="">Magie</option>
-                <option value="">Shinigami</option>
-                <option value="">blabla</option>
-            </select>
-        </div>
+            <button type="button">Recherche avancée <i class="fas fa-sort-down"></i></button>
 
-        <input type="submit" value="Rechercher">
+            <div id="anime-list-search-date">
+                <label for="">Date&nbsp;comprise&nbsp;entre</label>
+                <div>
+                    <input type="date">
+                    <span> et </span>
+                    <input type="date">
+                </div>
+                
+            </div>
 
-        
+            <div>
+                <label for="">Genre&nbsp;:</label>
+                <select name="" id="">
+                    <option value="">Action</option>
+                    <option value="">Mystère</option>
+                    <option value="">Horreur</option>
+                </select>
+            </div>
 
-    </form>
+            <div>
+                <label for="">Tag&nbsp;:</label>
+                <select name="" id="">
+                    <option value="">Magie</option>
+                    <option value="">Shinigami</option>
+                    <option value="">blabla</option>
+                </select>
+            </div>
+
+            <input type="submit" value="Rechercher">
+
+        </form>
+
+    </div>
 
     <article class="display-list-anime">
         <div class="anime-line">

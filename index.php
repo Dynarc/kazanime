@@ -23,6 +23,17 @@ if(empty($_GET['page'])){
                 require_once 'views/listeAnime.view.php';
                 break;
             
+            case 'proposer-anime':
+                require_once 'views/proposerAnime.view.php';
+                break;
+
+            case 'connexion':
+                require_once 'views/connexion.view.php';
+                break;
+
+            case 'inscription':
+                require_once 'views/inscription.view.php';
+                break;
 
             default:
                 throw new Exception("La page n'existe pas");

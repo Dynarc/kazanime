@@ -13,7 +13,7 @@
     <header>
         <div id="brand">
             <h1>Kazanime</h1>
-            <a href='https://www.freepik.com/vectors/background'>Background vector created by upklyak - www.freepik.com</a>
+            <a href='https://fr.freepik.com/vecteurs/fond'><small>Fond vecteur créé par upklyak - fr.freepik.com</small></a>
         </div>
 
         <nav>
@@ -21,7 +21,7 @@
 
                 <li><a href="<?=URL?>accueil">Accueil</a></li>
                 <li><a href="<?=URL?>liste-anime">Liste des animes</a></li>
-                <li><a href="">Proposer un anime</a></li>
+                <li><a href="<?=URL?>proposer-anime">Proposer un anime</a></li>
                 <li><a href="">Mon compte</a></li>
                 <li>
                     <i class="fas fa-search"></i>
@@ -48,7 +48,7 @@
 
                 <li><a href="<?=URL?>accueil">Accueil</a></li>
                 <li><a href="<?=URL?>liste-anime">Liste des animes</a></li>
-                <li><a href="">Proposer un anime </a></li>
+                <li><a href="<?=URL?>proposer-anime">Proposer un anime </a></li>
                 <li><a href="">Mon compte</a></li>
                 <li><a href="">A propos</a></li>
                 <li><a href="">Contact</a></li>
