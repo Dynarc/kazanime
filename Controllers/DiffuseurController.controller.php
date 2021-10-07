@@ -73,12 +73,16 @@ class DiffuseurController{
 
     public function deleteDiffuseur($id){
         try {
-            if(!empty($this->diffuseurManager->getDiffuseurById($id))){
-                $this->diffuseurManager->deleteDiffuseurDB($id);
-                GlobalController::alert("succes","le diffuseur a bien été supprimé");
-            } else{
-                throw new Exception("Le diffuseur n'existe pas");
+            if(empty($this->diffuseurManager->getDiffuseurById($id))){
+                $error = "<p>Le diffuseur n'existe pas</p>";
             }
+            if(!empty($error)){
+                throw new Exception($error);
+            }
+
+            $this->diffuseurManager->deleteDiffuseurDB($id);
+            GlobalController::alert("succes","le diffuseur a bien été supprimé");
+
         } catch (Exception $e) {
             GlobalController::alert('echec',$e->getMessage());
         }
