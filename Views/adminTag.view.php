@@ -4,7 +4,7 @@
     <section class="crud-list">
         <article>
 
-            <?php foreach ($tags as $tag) { ?>
+            <?php  if(!empty($tags)) foreach ($tags as $tag) { ?>
                 <div>
                     <p><?=$tag->getNom()?></p>
                     <div>

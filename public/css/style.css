@@ -533,6 +533,27 @@ body.newBackground{
     margin: 4px;
 }
 
+/* CRUD result */
+.message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 2%;
+}
+.message.echec{
+    color: var(--contrast-main-color);
+}
+.message.succes{
+    color: #55D437;
+}
+.message>p{
+    margin: 0;
+}
+
+
 /* CRUD admin */
 
 .crud-title{
