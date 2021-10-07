@@ -24,6 +24,16 @@ class UserManager extends Model{
         return $user;
     }
 
+    public function getUserData($id){
+        $sql = "SELECT * FROM user where id_user = :id";
+        $req = $this->getDB()->prepare($sql);
+        $req->execute([
+            ':id'=> $id,
+        ]);
+        $user = $req->fetchAll(PDO::FETCH_OBJ);
+        return $user;
+    }
+
     public function accountLogin($data){
         $sql = "SELECT * FROM user where mail = :data OR pseudo = :data";
         $req = $this->getDB()->prepare($sql);
@@ -37,12 +47,16 @@ class UserManager extends Model{
     public function accountRegister($pseudo, $mail, $password){
         $sql = "INSERT INTO user(pseudo, mail, mdp, id_role) VALUES (:pseudo, :mail, :password, (select id_role from role where nom = 'user'))";
         $req = $this->getDB()->prepare($sql);
-        $req->execute([
+        $result = $req->execute([
             ':pseudo'=> $pseudo,
             ':mail'=> $mail,
             ':password'=> $password,
         ]);
-        $user = $req->fetchAll(PDO::FETCH_OBJ);
+        if($result){
+            $data = $this->getUserData($this->getDB()->lastInsertId());
+            // $user = new User('plein de truc de $data');
+            // $this->addUser($user);
+        }
     }
 
 

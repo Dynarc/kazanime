@@ -37,6 +37,14 @@ a{
     color: var(--main-color);
 }
 
+li{
+    list-style: none;
+}
+
+ul{
+    padding: 0%;
+}
+
 input{
     font-family: 'Noto Sans JP', cursive;
 }
@@ -147,11 +155,6 @@ nav ul{
     display: flex;
     justify-content: space-evenly;
     align-items: baseline;
-    padding: 0%;
-}
-
-nav ul li{
-    list-style: none;
 }
 
 nav ul li a{
@@ -497,4 +500,90 @@ input[type='date']::-webkit-calendar-picker-indicator{
 
 body.newBackground{
     background: 65% / cover url("../image/jlwd_2ucy_201006.jpg");
+}
+
+
+/* Admin page */
+
+.admin-home>p{
+    text-align: center;
+    font-size: 25px;
+    padding: 4%;
+}
+
+.admin-home ul{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 50%;
+    margin: auto;
+}
+
+.admin-home ul li{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.admin-home ul li a{
+    padding: 10px 0px;
+    background: var(--dark-bg-color);
+    width: 100%;
+    text-align: center;
+    margin: 4px;
+}
+
+/* CRUD admin */
+
+.crud-title{
+    text-align: center;
+}
+
+.crud-list>article{
+    width: 50%;
+    margin: auto;
+}
+
+.crud-list>article>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px var(--main-color) solid;
+    padding: 1%;
+}
+
+.crud-list>article>div:first-of-type{
+    border-top: unset;
+}
+
+.crud-list div>button:last-of-type>a{
+    color: var(--contrast-main-color);
+}
+
+.crud-list>button{
+    display: block;
+    margin: 2% auto;
+    
+}
+
+.crud-list>form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #3A4873;
+    width: 50%;
+    margin: auto;
+    padding: 1% 0%;
+}
+
+.crud-list>form>input{
+    margin: 0.3% 0%;
+    box-sizing: unset;
+}
+
+.crud-list>form.form-crud-add{
+    display: none ;
+}
+.crud-list>form.form-crud-modify{
+    display: none ;
 }
