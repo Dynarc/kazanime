@@ -30,6 +30,16 @@
         <button class="crud-add">Ajouter un tag</button>
     </section>
 
+    <?php
+        if (!empty($_SESSION['alert'])) :
+    ?>
+        <div class="message <?= $_SESSION['alert']['type'] ?>">
+            <?= $_SESSION['alert']['msg'] ?>
+        </div>
+    <?php
+        endif
+    ?>
+
 
 <?php
 $titre = "Admin tag";

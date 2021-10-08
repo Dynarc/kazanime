@@ -14,6 +14,7 @@ class DiffuseurController{
     public function displayDiffuseurs(){
         $diffuseurs = $this->diffuseurManager->getDiffuseurs();
         require_once 'views/adminDiffuseur.view.php';
+        unset($_SESSION['alert']);
     }
 
     public function addDiffuseur(){
@@ -34,7 +35,7 @@ class DiffuseurController{
             }
 
             $this->diffuseurManager->addDiffuseurDB($_POST['diffuseur'], $_POST['lien']);
-            GlobalController::alert("succes","Le diffuseur a bien été ajouté");
+            GlobalController::alert("succes","<p>Le diffuseur a bien été ajouté</p>");
             
         } catch (Exception $e) {
             GlobalController::alert('echec',$e->getMessage());
@@ -62,7 +63,7 @@ class DiffuseurController{
             }
 
             $this->diffuseurManager->modifyDiffuseurDB($id, $_POST['new_diffuseur'], $_POST['new_lien']);
-            GlobalController::alert("succes","le diffuseur a bien été modifié");
+            GlobalController::alert("succes","<p>le diffuseur a bien été modifié</p>");
 
         } catch (Exception $e) {
             GlobalController::alert('echec',$e->getMessage());
@@ -81,7 +82,7 @@ class DiffuseurController{
             }
 
             $this->diffuseurManager->deleteDiffuseurDB($id);
-            GlobalController::alert("succes","le diffuseur a bien été supprimé");
+            GlobalController::alert("succes","<p>le diffuseur a bien été supprimé</p>");
 
         } catch (Exception $e) {
             GlobalController::alert('echec',$e->getMessage());

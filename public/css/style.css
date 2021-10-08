@@ -543,14 +543,19 @@ body.newBackground{
     margin: auto;
     margin-bottom: 2%;
 }
-.message.echec{
+.message.echec>p{
     color: var(--contrast-main-color);
+    background: lightpink;
 }
-.message.succes{
+.message.succes>p{
     color: #55D437;
+    background: darkslategrey;
 }
 .message>p{
-    margin: 0;
+    margin: 5px 0px;
+    padding: 15px 20px;
+    border-radius: 50px;
+    
 }
 
 

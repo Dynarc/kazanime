@@ -2,7 +2,7 @@ let showAdd = document.querySelector('.crud-add');
 let formAdd = document.querySelector('.form-crud-add');
 let formModify = document.querySelector('.form-crud-modify');
 let modifyButtons = document.querySelectorAll('.crud-list div>button:first-of-type');
-let label = document.querySelector('.form-crud-modify>label');
+let input = document.querySelector('.form-crud-modify>input');
 
 function showAddForm(){
     formAdd.style.display = formAdd.style.display == "flex" ? "none" : "flex";
@@ -14,7 +14,7 @@ function showModifyForm(item, value){
     }
     formModify.setAttribute('action', value);
     let tag = item.parentElement.previousElementSibling.innerHTML;
-    label.innerHTML = "Update du tag : <b>"+tag+"</b>";
+    input.value = tag;
 }
 
 
