@@ -22,19 +22,33 @@ if(empty($_GET['page'])){
                 break;
                 
             case 'liste-anime':
+                // a changer
                 require_once 'views/listeAnime.view.php';
                 break;
             
             case 'proposer-anime':
+                // a changer
                 require_once 'views/proposerAnime.view.php';
                 break;
 
             case 'connexion':
+                // a changer
                 require_once 'views/connexion.view.php';
                 break;
 
             case 'inscription':
+                // a changer
                 require_once 'views/inscription.view.php';
+                break;
+
+            case 'search':
+                require_once 'controllers/SearchController.controller.php';
+                if(!empty($_POST['search'])){
+                    $search = new Search($_POST['search']);
+                    $search->checkExist();
+                } else {
+                    echo 'error';
+                }                
                 break;
 
             case 'admin':

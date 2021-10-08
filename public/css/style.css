@@ -45,17 +45,22 @@ ul{
     padding: 0%;
 }
 
-input{
+input, textarea{
     font-family: 'Noto Sans JP', cursive;
 }
 
-input[type='text'], input[type='date'], input[type='password'], input[type='email'],select{
+input[type='text'], input[type='date'], input[type='password'], input[type='email'], select, textarea{
     background: var(--dark-bg-color);
     border: none;
     height: 20px;
     color: var(--main-color);
     font-size: 15px;
     padding: 4px 10px;
+}
+
+textarea{
+    height: unset;
+    resize: none;
 }
 /* fix select height */
 select{
@@ -68,11 +73,15 @@ input:-webkit-autofill, input:-webkit-autofill:focus{
     -webkit-box-shadow: 0 0 0px 1000px var(--main-color) inset;
 }
 
-input[type='text']:focus, input[type='date']:focus, input[type='password']:focus, input[type='email']:focus, select:focus{
+input[type='text']:focus, input[type='date']:focus, input[type='password']:focus, input[type='email']:focus, select:focus, textarea:focus{
     border: var(--main-color) 2px solid;
     outline: unset;
     height: 16px;
     padding: 4px 8px;
+}
+
+textarea:focus{
+    height: unset;
 }
 
 select:focus{
@@ -369,7 +378,7 @@ footer nav ul li a{
 }
 
 #anime-list-search>button{
-    background-color: var(--secondary-bg-color);
+    background: var(--secondary-bg-color);
     display: flex;
     align-items: flex-start;
     margin: auto;
@@ -500,6 +509,109 @@ input[type='date']::-webkit-calendar-picker-indicator{
 
 body.newBackground{
     background: 65% / cover url("../image/jlwd_2ucy_201006.jpg");
+}
+
+/* proposer un anime */
+
+.proposition{
+    width: 60%;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--secondary-bg-color);
+    box-shadow: 0 0 40px rgb(0,0,0,0.6);
+    padding: 3% 0%;
+}
+
+.proposition>form:first-of-type{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.proposition>form>input{
+    margin: 2% 0;
+}
+
+.proposition-suite{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.proposition-suite>div{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-between;
+    padding: 2%;
+}
+
+.proposition-suite>div>div{
+    display: flex;
+    align-items: baseline;
+}
+
+.proposition-suite input, .proposition-suite textarea{
+    width: 100%;
+    margin: 5px;
+}
+
+.proposition-suite textarea:focus{
+    margin: 3px;
+}
+
+.proposition-suite-form, .proposition-suite-titre{
+    display: none;
+}
+
+.proposition-suite-form>input:last-of-type{
+    display: flex;
+    margin: auto;
+}
+
+.display-proposition{
+    margin: 2% 0%;
+    
+}
+
+.display-proposition>h2{
+    margin: 2% 20%;
+}
+
+.display-proposition p{
+    font-size: 20px;    
+}
+
+.display-proposition>article{
+    display: grid;
+    grid-template-columns: 20% 5fr 2fr 1fr 20%;
+    align-items: center;
+}
+
+.display-proposition>article:nth-child(odd){
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.display-proposition>article>p:nth-child(1){
+    grid-column: 2;
+}
+
+.display-proposition>article>p:nth-child(2){
+    text-align: center;
+    grid-column: 3;
+}
+
+.display-proposition>article>p:nth-child(3){
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 4;
+}
+
+.display-proposition i{
+    font-size: 20px;
 }
 
 
