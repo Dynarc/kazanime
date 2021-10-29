@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="<?=URL?>public/css/style.css">
     <title><?=$titre?></title>
 </head>
 <body>
@@ -13,7 +13,7 @@
     <header>
         <div id="brand">
             <h1>Kazanime</h1>
-            <a href='https://www.freepik.com/vectors/background'>Background vector created by upklyak - www.freepik.com</a>
+            <a href='https://fr.freepik.com/vecteurs/fond'><small>Fond vecteur créé par upklyak - fr.freepik.com</small></a>
         </div>
 
         <nav>
@@ -21,7 +21,7 @@
 
                 <li><a href="<?=URL?>accueil">Accueil</a></li>
                 <li><a href="<?=URL?>liste-anime">Liste des animes</a></li>
-                <li><a href="">Proposer un anime</a></li>
+                <li><a href="<?=URL?>proposer-anime">Proposer un anime</a></li>
                 <li><a href="">Mon compte</a></li>
                 <li>
                     <i class="fas fa-search"></i>
@@ -48,7 +48,7 @@
 
                 <li><a href="<?=URL?>accueil">Accueil</a></li>
                 <li><a href="<?=URL?>liste-anime">Liste des animes</a></li>
-                <li><a href="">Proposer un anime </a></li>
+                <li><a href="<?=URL?>proposer-anime">Proposer un anime </a></li>
                 <li><a href="">Mon compte</a></li>
                 <li><a href="">A propos</a></li>
                 <li><a href="">Contact</a></li>
@@ -57,7 +57,7 @@
         </nav>
     </footer>
 
-    <script src="public/js/script.js"></script>
-    <script src="public/js/<?=str_replace(' ','-',$titre)?>/script.js"></script>
+    <script src="<?=URL?>public/js/script.js"></script>
+    <script src="<?=URL?>public/js/<?=str_replace(' ','-',$titre)?>/script.js"></script>
 </body>
 </html>

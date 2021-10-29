@@ -13,6 +13,19 @@
     --dark-bg-color: #0D1940;
 }
 
+html, body{
+    min-height: 100vh;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    margin-top: auto;
+}
+
 .RO, .RO a, .RO p{
     font-family: "Reggae One", cursive;
     font-weight: normal;
@@ -24,21 +37,55 @@ a{
     color: var(--main-color);
 }
 
-input{
+li{
+    list-style: none;
+}
+
+ul{
+    padding: 0%;
+}
+
+input, textarea{
     font-family: 'Noto Sans JP', cursive;
 }
 
-input[type='text'], input[type='date'], select{
+input[type='text'], input[type='date'], input[type='password'], input[type='email'], select, textarea{
     background: var(--dark-bg-color);
     border: none;
-    height: 24px;
+    height: 20px;
     color: var(--main-color);
     font-size: 15px;
+    padding: 4px 10px;
 }
 
-input[type='text']:focus{
+textarea{
+    height: unset;
+    resize: none;
+}
+/* fix select height */
+select{
+    height: 28px;
+}
+
+/* custom autocompletion */
+input:-webkit-autofill, input:-webkit-autofill:focus{
+    box-shadow: 0 0 0px 1000px var(--main-color) inset;
+    -webkit-box-shadow: 0 0 0px 1000px var(--main-color) inset;
+}
+
+input[type='text']:focus, input[type='date']:focus, input[type='password']:focus, input[type='email']:focus, select:focus, textarea:focus{
     border: var(--main-color) 2px solid;
     outline: unset;
+    height: 16px;
+    padding: 4px 8px;
+}
+
+textarea:focus{
+    height: unset;
+}
+
+select:focus{
+    height: 28px;
 }
 
 input[type='submit'], button{
@@ -91,10 +138,11 @@ body{
     -webkit-text-stroke: 2px var(--contrast-main-color);
     text-align: center;
     text-transform: uppercase;
+    margin: 2% 0%
 }
 
-#brand a{
-    font-size: small;
+header{
+    z-index: 2;
 }
 
 header nav ul li>i{
@@ -110,18 +158,12 @@ nav{
     display: inline-block;
     width: 100%;
     box-shadow: 0px 0px 40px rgb(0, 0, 0, 0.6);
-    position: relative;
 }
 
 nav ul{
     display: flex;
     justify-content: space-evenly;
     align-items: baseline;
-    padding: 1% 0%;
-}
-
-nav ul li{
-    list-style: none;
 }
 
 nav ul li a{
@@ -149,27 +191,29 @@ nav ul li i{
 
 .search div{
     position: fixed;
-    left: 40%;
-    right: 40%;
-    top: 43%;
-    bottom: 43%;
+    bottom: 40%;
     background: var(--main-bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 20%;
+    height: 20%;
+    min-width: 200px;
+    min-height: 150px;
 }
 
 .search i{
     position: absolute;
     z-index: 4;
-    top: 58%;
+    top: 60%;
 }
 
 .search input[type='text']{
     padding-left: 12px;
     padding-right: 12px;
     margin-bottom: 9px;
+    width: 60%;
 }
 
 .search input[type='text']:focus{
@@ -183,11 +227,11 @@ nav ul li i{
 /* Footer */
 
 footer nav ul li a{
-    font-size: 25px;
+    font-size: 15px;
 }
 
 
-/* Accueil */
+/* Home */
 
 .vedette{
     display: flex;
@@ -293,23 +337,25 @@ footer nav ul li a{
 }
 
 
-/* Liste des animes */
+/* Anime list */
 
 #anime-list{
     display: flex;
 }
 
-#anime-list-search{
+#form-content{
+    padding: 1%;
     background: var(--secondary-bg-color);
+    min-width: 15%;
+    box-shadow: 0px 0px 40px rgb(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+#anime-list-search{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    min-width: 20%;
     padding: 1%;
-    max-height: 500px;
-    position: sticky;
-    top: 0px;
-    box-shadow: 0px 0px 40px rgb(0, 0, 0, 0.6);
 }
 
 #anime-list-search>p{
@@ -321,7 +367,9 @@ footer nav ul li a{
     display: flex;
     margin: 5% 0px;
     width: 100%;
-    align-items: baseline;
+}
+#anime-list-search > div:nth-child(5), #anime-list-search > div:nth-child(6), #anime-list-search > div:nth-child(7){
+    display: none;
 }
 
 #anime-list-search>div>input, #anime-list-search>div>select{
@@ -330,7 +378,7 @@ footer nav ul li a{
 }
 
 #anime-list-search>button{
-    background-color: var(--secondary-bg-color);
+    background: var(--secondary-bg-color);
     display: flex;
     align-items: flex-start;
     margin: auto;
@@ -423,4 +471,257 @@ input[type='date']::-webkit-calendar-picker-indicator{
     width: 25%;
     font-size: 25px;
     margin: 3% auto;
+}
+
+/* Login page and register page */
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 4%;
+    background: var(--secondary-bg-color);
+    padding: 1.5% 2%;
+    box-shadow: 0px 0px 40px rgb(0, 0, 0, 0.6);
+}
+
+.login>h1{
+    font-size: 35px;
+}
+
+.login>form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login>form>label{
+    font-size: 20px;
+}
+
+.login>form>input{
+    margin-bottom: 10%;
+}
+
+body.newBackground{
+    background: 65% / cover url("../image/jlwd_2ucy_201006.jpg");
+}
+
+/* proposer un anime */
+
+.proposition{
+    width: 60%;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--secondary-bg-color);
+    box-shadow: 0 0 40px rgb(0,0,0,0.6);
+    padding: 3% 0%;
+}
+
+.proposition>form:first-of-type{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.proposition>form>input{
+    margin: 2% 0;
+}
+
+.proposition-suite{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.proposition-suite>div{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-between;
+    padding: 2%;
+}
+
+.proposition-suite>div>div{
+    display: flex;
+    align-items: baseline;
+}
+
+.proposition-suite input, .proposition-suite textarea{
+    width: 100%;
+    margin: 5px;
+}
+
+.proposition-suite textarea:focus{
+    margin: 3px;
+}
+
+.proposition-suite-form, .proposition-suite-titre{
+    display: none;
+}
+
+.proposition-suite-form>input:last-of-type{
+    display: flex;
+    margin: auto;
+}
+
+.display-proposition{
+    margin: 2% 0%;
+    
+}
+
+.display-proposition>h2{
+    margin: 2% 20%;
+}
+
+.display-proposition p{
+    font-size: 20px;    
+}
+
+.display-proposition>article{
+    display: grid;
+    grid-template-columns: 20% 5fr 2fr 1fr 20%;
+    align-items: center;
+}
+
+.display-proposition>article:nth-child(odd){
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.display-proposition>article>p:nth-child(1){
+    grid-column: 2;
+}
+
+.display-proposition>article>p:nth-child(2){
+    text-align: center;
+    grid-column: 3;
+}
+
+.display-proposition>article>p:nth-child(3){
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 4;
+}
+
+.display-proposition i{
+    font-size: 20px;
+}
+
+
+/* Admin page */
+
+.admin-home>p{
+    text-align: center;
+    font-size: 25px;
+    padding: 4%;
+}
+
+.admin-home ul{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 50%;
+    margin: auto;
+}
+
+.admin-home ul li{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.admin-home ul li a{
+    padding: 10px 0px;
+    background: var(--dark-bg-color);
+    width: 100%;
+    text-align: center;
+    margin: 4px;
+}
+
+/* CRUD result */
+.message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 2%;
+}
+.message.echec>p{
+    color: var(--contrast-main-color);
+    background: lightpink;
+}
+.message.succes>p{
+    color: #55D437;
+    background: darkslategrey;
+}
+.message>p{
+    margin: 5px 0px;
+    padding: 15px 20px;
+    border-radius: 50px;
+    
+}
+
+
+/* CRUD admin */
+
+.crud-title{
+    text-align: center;
+}
+
+.crud-list>article{
+    width: 50%;
+    margin: auto;
+}
+
+.crud-list>article>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px var(--main-color) solid;
+    padding: 1%;
+}
+
+.crud-list>article>div:first-of-type{
+    border-top: unset;
+}
+
+.crud-list div>button:last-of-type>a{
+    color: var(--contrast-main-color);
+}
+
+.crud-list>button{
+    display: block;
+    margin: 2% auto;
+    
+}
+
+.crud-list>form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #3A4873;
+    width: 50%;
+    margin: auto;
+    padding: 1% 0%;
+}
+
+.crud-list>form>input{
+    margin: 0.3% 0%;
+    box-sizing: unset;
+}
+
+.crud-list>form.form-crud-add{
+    display: none ;
+}
+.crud-list>form.form-crud-modify{
+    display: none ;
 }
