@@ -21,7 +21,7 @@ class AccountController{
     }
 
     public function connect($user) {
-        $_SESSION['user'] = $user[0];
+        $_SESSION['user'] = $user;
         header('Location: '.URL.'accueil');
     }
 
@@ -107,7 +107,7 @@ class AccountController{
 
             if (password_verify($_POST['password'], $userData[0]->mdp)) {
                 GlobalController::alert("succes","<p>Connexion effectuée</p>");
-                $this->connect($userData);
+                $this->connect($userData[0]);
             } else {
                 throw new Exception("<p>Mot de passe invalide</p>");
             }
