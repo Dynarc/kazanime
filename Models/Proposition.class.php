@@ -15,6 +15,6 @@ class Proposition{
     private $genre;
     private $tag;
     private $id_user;
-    private $id_statut
+    private $id_statut;
     
 }
