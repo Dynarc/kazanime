@@ -3,11 +3,25 @@ require_once 'Account.class.php';
 require_once 'Model.class.php';
 
 class AccountManager extends Model{
-    
+    private $accounts;
 
-    public function addAccount($user) {
-        $_SESSION['user'] = $user;
-        header('Location: '.URL.'accueil');
+    public function getAccounts(){
+        return $this->accounts;
+    }
+
+    public function loadingAccounts(){
+        $sql = "SELECT * FROM user";
+        $req = $this->getDB()->prepare($sql);
+        $req->execute();
+        $users = $req->fetchAll(PDO::FETCH_OBJ);
+        foreach($users as $account){
+            $account = new Account($account->id_user ,$account->pseudo, $account->mail, null, $account->date_inscription, $account->id_role);
+            $this->addAccount($account);
+        }
+    }
+
+    public function addAccount($account) {
+        $this->accounts[] = $account;
     }
 
     public function addAccountDB($pseudo, $mail, $password, $id_role) {
