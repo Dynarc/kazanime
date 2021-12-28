@@ -4,25 +4,35 @@
     
     <h1 class="RO">Inscription</h1>
     
-    <form action="">
+    <form action="<?=URL?>inscription/ajouter" method="POST">
         
         <label for="pseudo">Pseudo</label>
-        <input type="text" name="pseudo">
+        <input type="text" name="pseudo" required>
 
         <label for="email">Email</label>
-        <input type="email" name="email">
+        <input type="email" name="email" required>
 
         <label for="password">Mot de passe</label>
-        <input type="password" name="password">
+        <input type="password" name="password" required>
 
         <label for="password-confirm">Confirmer le mot de passe</label>
-        <input type="password" name="password-confirm">
+        <input type="password" name="password-confirm" required>
 
-        <input type="submit" value="Se connecter" class="RO">
+        <input type="submit" value="S'inscrire" class="RO">
 
     </form>
 
     <p>Vous avez déjà un compte ? <u><a href="<?=URL?>connexion">Se connecter</a></u></p>
+
+    <?php
+        if (!empty($_SESSION['alert'])) :
+    ?>
+        <div class="message <?= $_SESSION['alert']['type'] ?>">
+            <?= $_SESSION['alert']['msg'] ?>
+        </div>
+    <?php
+        endif
+    ?>
 
 </section>
 
