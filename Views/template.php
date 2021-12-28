@@ -12,7 +12,7 @@
 
     <header>
         <div id="brand">
-            <h1>Kazanime</h1>
+            <a href="<?=URL?>admin"><h1>Kazanime</h1></a>
             <a href='https://fr.freepik.com/vecteurs/fond'><small>Fond vecteur créé par upklyak - fr.freepik.com</small></a>
         </div>
 
@@ -22,7 +22,12 @@
                 <li><a href="<?=URL?>accueil">Accueil</a></li>
                 <li><a href="<?=URL?>liste-anime">Liste des animes</a></li>
                 <li><a href="<?=URL?>proposer-anime">Proposer un anime</a></li>
+                <?php if(isset($_SESSION['user'])) { ?>
                 <li><a href="">Mon compte</a></li>
+                <li><a href="<?=URL?>deconnexion"><i class="fas fa-user-slash"></i></a></li>
+                <?php } else { ?>
+                <li><a href="<?=URL?>connexion">Connexion</a> / <a href="<?=URL?>inscription">Inscription</a></li>
+                <?php } ?>
                 <li>
                     <i class="fas fa-search"></i>
                     <form action="" class="search">
