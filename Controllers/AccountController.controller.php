@@ -8,6 +8,13 @@ class AccountController{
 
     public function __construct(){
         $this->accountManager = new AccountManager;
+        $this->accountManager->loadingAccounts();
+    }
+
+    public function displayAccounts(){
+        $accounts = $this->accountManager->getAccounts();
+        require_once 'views/adminAccount.view.php';
+        unset($_SESSION['alert']);
     }
 
     public function inscriptionHome(){
