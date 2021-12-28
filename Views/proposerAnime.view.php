@@ -9,7 +9,7 @@
 
     <h2 class="proposition-suite-titre">Informations complémentaires</h2>
 
-    <form action="<?URL?>proposer-anime/ajouter" method="POST" class="proposition-suite-form">
+    <form action="<?=URL?>proposer-anime/ajouter" method="POST" class="proposition-suite-form">
         <input type="hidden" name="nom">
         
         <div class="proposition-suite">
