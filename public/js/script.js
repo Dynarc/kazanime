@@ -12,13 +12,6 @@ function hideSearchBar(){
     search.style.display = 'none';
 }
 
-function adminShortcut(){
-    window.location.pathname = '/Kazanime/admin'
-}
-
 // event nav's search bar
 openSearch.addEventListener('click', displaySearchBar);
 closeSearch.addEventListener('click', hideSearchBar);
-
-// event KAZANIME title to go to admin page
-kazanime.addEventListener('click', adminShortcut);
