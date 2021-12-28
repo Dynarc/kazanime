@@ -72,6 +72,7 @@ if(empty($_GET['page'])){
                         switch ($url[1]){
 
                             case 'utilisateur':
+                                $accountController->displayAccounts();
                                 break;
                             
                             case 'anime':
