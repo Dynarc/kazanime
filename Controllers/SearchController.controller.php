@@ -16,20 +16,20 @@ class Search{
         $tab = [];
         if (!empty($animes)){
             foreach ($animes as $value) {
-            if(!array_key_exists($value->id_anime,$tab)){
-                $tab[$value->id_anime] = [
-                    'Id' => $value->id_anime,
-                    'Nom' => $value->nom,
-                    'Synopsis' => $value->synopsis,
-                    'Image' => $value->image,
-                    'Image alternative' => $value->image_miniature,
-                    'date de debut' => $value->date_debut,
-                    'date de fin' => $value->date_fin,
-                    "nombre d'épisode" => $value->nombre_episode,
-                    "durée d'un épisode" => $value->duree_episode
-                ];
+                if(!array_key_exists($value->id_anime,$tab)){
+                    $tab[$value->id_anime] = [
+                        'Id' => $value->id_anime,
+                        'Nom' => $value->nom,
+                        'Synopsis' => $value->synopsis,
+                        'Image' => $value->image,
+                        'Image alternative' => $value->image_miniature,
+                        'date de debut' => $value->date_debut,
+                        'date de fin' => $value->date_fin,
+                        "nombre d'épisode" => $value->nombre_episode,
+                        "durée d'un épisode" => $value->duree_episode
+                    ];
+                }
             }
-        }
         }
         GlobalController::sendJson($tab);
     }
