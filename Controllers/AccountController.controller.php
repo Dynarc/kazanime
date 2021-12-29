@@ -27,19 +27,31 @@ class AccountController{
         unset($_SESSION['alert']);
     }
 
-    public function connect($user) {
+    public function connect($user, $time) {
         $_SESSION['user'] = $user;
+        if ($time != null) $this->rememberUser($user, $time);
         header('Location: '.URL.'accueil');
     }
 
     private function rememberUser($user, $time) {
-        setcookie('user', $user, time() + $time);
+        setcookie('user', $user->pseudo, time() + $time);
+        $id = password_hash($user->pseudo.$user->mdp, PASSWORD_DEFAULT);
+        setcookie('id', $id, time() + $time);
     }
 
     public function disconnect() {
         unset($_SESSION['user']);
         setcookie('user', null, time() - 3600);
         header('Location: '.URL.'accueil');
+    }
+
+    public function reconnect() {
+        $userData = $this->accountManager->accountConnection($_SESSION['user']);
+        if (!empty($userData)) {
+            if (password_verify($userData->pseudo.$userData->password, $_SESSION['id'])) {
+                $_SESSION['user'] = $userData;
+            };
+        }
     }
 
     public function createAccount() {
@@ -84,8 +96,9 @@ class AccountController{
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
             $user = $this->accountManager->addAccountDB($_POST['pseudo'], $_POST['email'], $password, 2);
+            $time = 60*60*24*7; // Set cookie for 1 week when creating an account  
 
-            $this->connect($user);
+            $this->connect($user, $time);
 
             GlobalController::alert("succes","<p>Le compte a bien été créé</p>");
             
@@ -117,14 +130,21 @@ class AccountController{
                 throw new Exception("<p>Aucun compte n'a été trouvé</p>");
             }
 
+            if (isset($_POST['remember']) && $_POST['remember'] == 'on') {
+                $time = 60*60*24*366; // Set cookie for 1 year
+            } else {
+                $time = null;
+            }
+
             if (password_verify($_POST['password'], $userData[0]->mdp)) {
                 GlobalController::alert("succes","<p>Connexion effectuée</p>");
-                $this->connect($userData[0]);
+                $this->connect($userData[0], $time);
             } else {
                 throw new Exception("<p>Mot de passe invalide</p>");
             }
             
             
+
         } catch (Exception $e) {
             GlobalController::alert('echec',$e->getMessage());
             header('Location: '.URL.'connexion');

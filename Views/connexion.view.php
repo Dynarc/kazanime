@@ -12,6 +12,9 @@
         <label for="password">Mot de passe</label>
         <input type="password" name="password" required>
 
+        <label for="remember">Se souvenir de moi ?</label>
+        <input type="checkbox" name="remember">
+
         <input type="submit" value="Se connecter" class="RO">
 
     </form>
@@ -35,6 +38,7 @@
 
 
 <?php
+var_dump($_POST);
 $titre = "Connexion";
 $content = ob_get_clean();
 require_once "template.php";
