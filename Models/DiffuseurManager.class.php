@@ -67,6 +67,7 @@ class DiffuseurManager extends Model{
         ]);
         if($result){
             $this->getDiffuseurById($id)->setNom($nom);
+            $this->getDiffuseurById($id)->setLien($lien);
         }
     }
 
