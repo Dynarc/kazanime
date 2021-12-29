@@ -8,10 +8,10 @@ class AccountController{
 
     public function __construct(){
         $this->accountManager = new AccountManager;
-        $this->accountManager->loadingAccounts();
     }
 
     public function displayAccounts(){
+        $this->accountManager->loadingAccounts();
         $accounts = $this->accountManager->getAccounts();
         require_once 'views/adminAccount.view.php';
         unset($_SESSION['alert']);
@@ -32,8 +32,13 @@ class AccountController{
         header('Location: '.URL.'accueil');
     }
 
+    private function rememberUser($user, $time) {
+        setcookie('user', $user, time() + $time);
+    }
+
     public function disconnect() {
         unset($_SESSION['user']);
+        setcookie('user', null, time() - 3600);
         header('Location: '.URL.'accueil');
     }
 
