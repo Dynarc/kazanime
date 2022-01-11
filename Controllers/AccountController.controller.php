@@ -55,14 +55,13 @@ class AccountController{
     }
 
     public function createAccount() {
-        $error = "";
         try {
             if(empty($_POST['pseudo'])){
-                $error .= "<p>Vous devez mettre votre pseudo</p>";
+                $error = "<p>Vous devez mettre votre pseudo</p>";
             } else if(strlen($_POST['pseudo']) < 4 || strlen($_POST['pseudo']) > 20) {
-                $error .= "<p>Votre pseudo doit faire 4 caractères minimum et 20 caractères maximum</p>";
+                $error = "<p>Votre pseudo doit faire 4 caractères minimum et 20 caractères maximum</p>";
             } else if(preg_match('/[^a-zA-Z0-9-_éè]/',$_POST['pseudo'])) {
-                $error .= "<p><Votre pseudo contient des caractères interdits. Seul les lettres, les chiffres et les tirets sont autorisés./p>";
+                $error = "<p><Votre pseudo contient des caractères interdits. Seul les lettres, les chiffres et les tirets sont autorisés./p>";
             }
 
             if(empty($_POST['email'])){
