@@ -694,6 +694,10 @@ body.newBackground{
     border-top: unset;
 }
 
+.crud-list>article>div>img {
+    width: 50px;
+}
+
 .crud-list div>button:last-of-type>a{
     color: var(--contrast-main-color);
 }
@@ -724,4 +728,42 @@ body.newBackground{
 }
 .crud-list>form.form-crud-modify{
     display: none ;
+}
+
+.crud-list .synopsis {
+    width: 70%;
+    height: 15vh;
+}
+
+.synopsis:focus {
+    height: 15vh;
+}
+
+
+/* Display anime admin */
+
+.admin-display-detail {
+    width: 80%;
+    margin: auto;
+}
+
+.admin-display-detail>article>div:first-of-type {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.admin-display-detail figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-display-detail>article>div:last-of-type {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.admin-display-detail span {
+    font-size: larger;
+    font-weight: bold;
 }
