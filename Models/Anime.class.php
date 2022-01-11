@@ -12,6 +12,7 @@ class Anime{
     private $synopsis;
     private $nombre_episode;
     private $duree_episode;
+    private $tags;
 
     public function __construct($id,$nom,$nom_alt,$image,$image_miniature,$date_debut,$date_fin,$synopsis,$nombre_episode,$duree_episode){
         $this->id = $id;
@@ -106,5 +107,13 @@ class Anime{
 
     public function setDuree_episode($duree_episode){
         $this->duree_episode = $duree_episode;
+    }
+
+    public function getTags(){
+        return $this->tags;
+    }
+
+    public function setTags($tag){
+        $this->tags[] = $tag;
     }
 }
