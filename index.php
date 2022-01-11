@@ -76,6 +76,49 @@ if(empty($_GET['page'])){
                                 break;
                             
                             case 'anime':
+                                require_once 'controllers/AnimeController.controller.php';
+                                $animeController = new AnimeController;
+                                if(isset($url[2])) {
+                                    switch ($url[2]){
+                                        case 'ajouter':
+                                            $animeController->addAnime();
+                                            break;
+
+                                        case 'afficher':
+                                            if(isset($url[3])){
+                                                if(isset($url[4])) {
+                                                    switch ($url[4]) {
+                                                        case 'tags':
+                                                            $animeController->updateTags($url[3]);
+                                                            break;
+                                                    }
+                                                } else {
+                                                    $animeController->displayAnime($url[3]);
+                                                }
+                                            } else {
+                                                throw new Exception('Aucun anime à afficher');
+                                            }
+                                        case 'modifier':
+                                            if(isset($url[3])){
+                                                // $animeController->modifyAnime($url[3]);
+                                            } else {
+                                                throw new Exception('Aucun anime à modifier');
+                                            }
+                                            break;
+
+                                        case 'supprimer':
+                                            if(isset($url[3])){
+                                                $animeController->deleteAnime($url[3]);
+                                            } else {
+                                                throw new Exception('Aucun anime à supprimer');
+                                            }
+                                            break;
+                                        default:
+                                            throw new Exception("La page n'existe pas");
+                                    }
+                                } else {
+                                    $animeController->displayAnimes();
+                                }
                                 break;
                             
                             case 'episode':
@@ -105,6 +148,8 @@ if(empty($_GET['page'])){
                                                 throw new Exception('Aucun tag à supprimer');
                                             }
                                             break;
+                                        default:
+                                            throw new Exception("La page n'existe pas");
                                     }
                                 } else {
                                     $tagController->displayTags();
@@ -135,6 +180,8 @@ if(empty($_GET['page'])){
                                                 throw new Exception('Aucun genre à supprimer');
                                             }
                                             break;
+                                        default:
+                                            throw new Exception("La page n'existe pas");
                                     }
                                 } else {
                                     $genreController->displayGenres();
@@ -165,6 +212,8 @@ if(empty($_GET['page'])){
                                                 throw new Exception('Aucun studio à supprimer');
                                             }
                                             break;
+                                        default:
+                                            throw new Exception("La page n'existe pas");
                                     }
                                 } else {
                                     $studioController->displayStudios();
@@ -195,6 +244,8 @@ if(empty($_GET['page'])){
                                                 throw new Exception('Aucun diffuseur à supprimer');
                                             }
                                             break;
+                                        default:
+                                            throw new Exception("La page n'existe pas");
                                     }
                                 } else {
                                     $diffuseurController->displayDiffuseurs();
@@ -231,7 +282,7 @@ if(empty($_GET['page'])){
         }
 
 
-        if(isset($_SESSION['user']))var_dump($_SESSION['user']);
+        // if(isset($_SESSION['user']))var_dump($_SESSION['user']);
 
     }catch (Exception $e){
         $test = $e->getMessage();
