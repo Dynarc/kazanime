@@ -19,7 +19,5 @@
 
 
 ### TODO 
-- finir form création anime
 - faire affichage admin + add studio, diffuseur,.....
-- faire modif, suppression anime
-- FIX : bug quand j'update les tags d'un anime (header too fast / check si passer par detenir.controller pour etre mieux)
+- FIX : bug quand j'update les tags d'un anime (esssayer d'ajouter un f() sur la class anime pour delete les tags)
