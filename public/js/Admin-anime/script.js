@@ -1,6 +1,6 @@
 let showAdd = document.querySelector('.crud-add');
 let formAdd = document.querySelector('.form-crud-add');
-let formTag = document.querySelector('.admin-display-detail>article>form');
+let formTag = document.querySelector('.admin-display-detail>.more-info>form');
 
 function showAddForm(){
     formAdd.style.display = formAdd.style.display == "flex" ? "none" : "flex";
