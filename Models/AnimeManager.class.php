@@ -1,9 +1,11 @@
 <?php
 require_once 'Anime.class.php';
 require_once 'Model.class.php';
+require_once 'detenirManager.class.php';
 
 class AnimeManager extends Model{
     private $animes;
+    private $detenirManager;
 
     public function addAnime($anime) {
         $this->animes[]= $anime;
@@ -32,6 +34,8 @@ class AnimeManager extends Model{
                 $anime->duree_episode
             );
             $this->addAnime($anime);
+            $this->detenirManager = new DetenirManager();
+            $this->detenirManager->getAnimeTag($anime);
         }
     }
 
@@ -116,4 +120,63 @@ class AnimeManager extends Model{
             unset($animeToDelete);
         }
     }
+
+    public function addAnimeTag($id_anime, $tag) {
+        $this->detenirManager->addAnimeTagDB($id_anime, $tag);
+    }
+
+    public function deleteAnimeTag($id_anime, $id_tag) {
+        $this->detenirManager->deleteAnimeTagDB($id_anime, $id_tag);
+    }
+
+    // public function getAnimeInfos($id) {
+    //     $sql = "SELECT * FROM anime INNER JOIN tag, studio, genre, diffuseur, detenir, avoir, disposer, diffuser WHERE anime.id_anime = :id AND anime.id_anime = detenir.id_anime AND anime.id_anime = avoir.id_anime AND anime.id_anime = disposer.id_anime AND anime.id_anime = diffuser.id_anime AND tag.id_tag = detenir.id_tag AND genre.id_genre = avoir.id_genre AND studio.id_studio = disposer.id_studio AND diffuseur.id_diffuseur = diffuser.id_diffuseur";
+    //     $req = $this->getDB()->prepare($sql);
+    //     $req->execute([
+    //         ":id" => $id
+    //     ]);
+    //     $anime = $req->fetchAll(PDO::FETCH_OBJ);
+    //     return $anime;
+    // }
+
+    // // DETENIR TABLE (LINK TO TAG)
+
+    // public function getAnimeTags($id) {
+    //     $sql = "SELECT tag.id_tag, tag.nom FROM detenir INNER JOIN anime, tag WHERE detenir.id_anime = anime.id_anime AND detenir.id_tag = tag.id_tag AND anime.id_anime = :id";
+    //     $req = $this->getDB()->prepare($sql);
+    //     $req->execute([
+    //         ':id' => $id
+    //     ]);
+    //     $tags = $req->fetchAll(PDO::FETCH_OBJ);
+    //     return $tags;
+    // }
+
+    
+
+    // public function addAnimeGenre($id_anime, $id_genre) {
+    //     $sql = "INSERT INTO avoir(id_anime, id_genre) VALUES (:id_anime, :id_genre)";
+    //     $req = $this->getDB()->prepare($sql);
+    //     $req->execute([
+    //         ':id_anime' => $id_anime,
+    //         ':id_genre' => $id_genre
+    //     ]);
+    // }
+
+    // public function addAnimeStudio($id_anime, $id_studio) {
+    //     $sql = "INSERT INTO disposer(id_anime, id_studio) VALUES (:id_anime, :id_studio)";
+    //     $req = $this->getDB()->prepare($sql);
+    //     $req->execute([
+    //         ':id_anime' => $id_anime,
+    //         ':id_studio' => $id_studio
+    //     ]);
+    // }
+
+    // public function addAnimeDiffusur($id_anime, $id_diffuseur) {
+    //     $sql = "INSERT INTO diffuser(id_anime, id_diffuseur) VALUES (:id_anime, :id_diffuseur)";
+    //     $req = $this->getDB()->prepare($sql);
+    //     $req->execute([
+    //         ':id_anime' => $id_anime,
+    //         ':id_diffuseur' => $id_diffuseur
+    //     ]);
+    // }
 }
