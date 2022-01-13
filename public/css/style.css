@@ -698,7 +698,7 @@ body.newBackground{
     width: 50px;
 }
 
-.crud-list div>button:last-of-type>a{
+.crud-list div>a:last-of-type>button    {
     color: var(--contrast-main-color);
 }
 
@@ -756,6 +756,14 @@ body.newBackground{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.admin-display-detail>article>div>figure:first-of-type>img {
+    max-width: 50%;
+}
+
+.admin-display-detail>article>div>figure:last-of-type>img {
+    max-width: 100%;
 }
 
 .admin-display-detail>article>div:last-of-type {
