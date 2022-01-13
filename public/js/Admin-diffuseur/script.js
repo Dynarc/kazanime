@@ -4,6 +4,7 @@ let formModify = document.querySelector('.form-crud-modify');
 let modifyButtons = document.querySelectorAll('.crud-list div>button:first-of-type');
 let input = document.querySelector('.form-crud-modify>input[type="text"]');
 let input2 = document.querySelector('.form-crud-modify>input[type="text"]:nth-child(4)')
+let deleteButton = document.querySelectorAll('button>a');
 
 function showAddForm(){
     formAdd.style.display = formAdd.style.display == "flex" ? "none" : "flex";
@@ -20,9 +21,19 @@ function showModifyForm(item, value){
     input2.value = lien;
 }
 
+function confirmDelete(e) {
+    e.preventDefault();
+    if(confirm('Voulez vous supprimer ce diffuseur ?')) {
+        window.location.href = e.target.href;
+    }
+}
 
 modifyButtons.forEach(button => {
     button.addEventListener('click', ()=>showModifyForm(button, button.value));
 });
+
+deleteButton.forEach(button => {
+    button.addEventListener('click', confirmDelete)
+})
 
 showAdd.addEventListener('click',showAddForm);
