@@ -34,24 +34,28 @@ class AccountController{
     }
 
     private function rememberUser($user, $time) {
-        setcookie('user', $user->pseudo, time() + $time);
+        $username = $user->pseudo;
+        setcookie('user', $username, time() + $time, '/');
         $id = password_hash($user->pseudo.$user->mdp, PASSWORD_DEFAULT);
-        setcookie('id', $id, time() + $time);
+        setcookie('id', $id, time() + $time, '/');
     }
 
     public function disconnect() {
         unset($_SESSION['user']);
         setcookie('user', null, time() - 3600);
-        header('Location: '.URL.'accueil');
+        header('Location: '.URL);
     }
 
     public function reconnect() {
-        $userData = $this->accountManager->accountConnection($_SESSION['user']);
-        if (!empty($userData)) {
-            if (password_verify($userData->pseudo.$userData->password, $_SESSION['id'])) {
-                $_SESSION['user'] = $userData;
-            };
+        if($_COOKIE['user'] && empty($_SESSION['user'])) {
+            $userData = $this->accountManager->accountConnection($_COOKIE['user']);
+            if (!empty($userData[0])) {
+                if (password_verify($userData[0]->pseudo.$userData[0]->mdp, $_COOKIE['id'])) {
+                    $_SESSION['user'] = $userData;
+                };
+            }
         }
+        
     }
 
     public function createAccount() {
