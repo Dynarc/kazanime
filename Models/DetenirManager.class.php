@@ -30,25 +30,22 @@ class DetenirManager extends Model{
         }
     }
 
-    public function addAnimeTag($anime, $tag) {
-        $this->animeManager->loadingAnime();
-        $tag = $this->tagManager->getTagById($tag);
-        $anime = $this->animeManager->getAnimeById($anime);
-        
-        $anime->setTags($tag);
-    }
-
     public function addAnimeTagDB($id_anime, $tag) {
         $tag = $this->tagManager->getTagByName($tag);
 
         $id_tag = $tag->getId();
         $sql = "INSERT INTO detenir(id_anime, id_tag) VALUES (:id_anime, :id_tag)";
         $req = $this->getDB()->prepare($sql);
-        $req->execute([
+        $result = $req->execute([
             ':id_anime' => $id_anime,
             ':id_tag' => $id_tag
         ]);
-        $this->addAnimeTag($id_anime, $id_tag);
+        if($result) {
+            $this->animeManager->loadingAnime();
+            $anime = $this->animeManager->getAnimeById($id_anime);
+            $anime->setTags($tag);
+        }
+        
     }
 
     public function deleteAnimeTagDB($id_anime, $id_tag) {
