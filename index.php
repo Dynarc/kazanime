@@ -2,6 +2,11 @@
 session_start();
 define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
+require_once 'controllers/globalController.controller.php';
+require_once 'controllers/accountController.controller.php';
+$accountController = new AccountController;
+$accountController->reconnect();
+
 if(empty($_GET['page'])){
 
     require_once 'views/accueil.view.php';
@@ -9,11 +14,6 @@ if(empty($_GET['page'])){
 } else{
 
     $url = explode("/", filter_var($_GET['page']), FILTER_SANITIZE_URL);
-
-    require_once 'controllers/globalController.controller.php';
-
-    require_once 'controllers/accountController.controller.php';
-    $accountController = new AccountController;
 
     try {
 
@@ -24,7 +24,6 @@ if(empty($_GET['page'])){
                 require_once 'views/accueil.view.php';
                 unset($_SESSION['alert']);
                 break;
-                
             case 'liste-anime':
                 // a changer
                 require_once 'views/listeAnime.view.php';
@@ -98,9 +97,10 @@ if(empty($_GET['page'])){
                                             } else {
                                                 throw new Exception('Aucun anime à afficher');
                                             }
+                                            break;
                                         case 'modifier':
                                             if(isset($url[3])){
-                                                // $animeController->modifyAnime($url[3]);
+                                                $animeController->modifyAnime($url[3]);
                                             } else {
                                                 throw new Exception('Aucun anime à modifier');
                                             }
@@ -282,7 +282,8 @@ if(empty($_GET['page'])){
         }
 
 
-        // if(isset($_SESSION['user']))var_dump($_SESSION['user']);
+        var_dump($_SESSION);
+        var_dump($_COOKIE);
 
     }catch (Exception $e){
         $test = $e->getMessage();
