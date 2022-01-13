@@ -25,7 +25,7 @@ class AnimeController {
         require_once "views/adminAnimeDetail.view.php";
     }
 
-    // FIXME: doesn't work properly, probably need to make new object Detenir
+    // FIXME: doesn't work properly, BDD OK but OBJECT doesn't update
     public function updateTags($id) {
         $anime = $this->animeManager->getAnimeById($id);
         $oldTags = $anime->getTags();
@@ -45,7 +45,6 @@ class AnimeController {
                 
                 if(empty($toDo)) {
                     $this->animeManager->deleteAnimeTag($id, $tag->getId());
-                    var_dump($this->animeManager->getAnimeById($id));
                 }
             }
         }

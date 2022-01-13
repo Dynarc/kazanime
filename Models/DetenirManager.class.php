@@ -61,12 +61,8 @@ class DetenirManager extends Model{
         if($result){
             $this->animeManager->loadingAnime();
             $anime = $this->animeManager->getAnimeById($id_anime);
-            $tagToDelete = $this->tagManager->getTagById($id_tag);
-            foreach ($anime->getTags() as $tag) {
-                if($tag == $tagToDelete) {
-                    unset($tag);
-                }
-            }
+            $anime->setTags([]);
+            $this->getAnimeTag($anime);
         }
     }
 
