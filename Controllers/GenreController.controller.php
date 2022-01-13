@@ -45,7 +45,7 @@ class GenreController{
             if(empty($_POST['new_genre'])){
                 $error = "<p>Vous devez mettre le nom du nouveau genre</p>";
             }
-            if(!empty($this->genreManager->getGenreByName($_POST['new_genre'])) && $this->genreManager->getGenreById($id)->getNom() != $_POST['new_genre']){
+            if(!empty($this->genreManager->getGenreByName($_POST['new_genre'])) || $this->genreManager->getGenreById($id)->getNom() == $_POST['new_genre']){
                 $error .= "<p>Le genre existe déjà</p>";
             } 
             if(!empty($error)){

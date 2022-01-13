@@ -55,7 +55,7 @@ class DiffuseurController{
             } else if(!preg_match('/[\s\S]+[.][\s\S]+/',$_POST['new_lien'])){
                 $error .= "<p>Le lien n'est pas dans un format valide</p>";
             }
-            if(!empty($this->diffuseurManager->getDiffuseurByName($_POST['new_diffuseur'])) && $this->diffuseurManager->getDiffuseurById($id)->getNom() != $_POST['new_diffuseur']){
+            if(!empty($this->diffuseurManager->getDiffuseurByName($_POST['new_diffuseur'])) || $this->diffuseurManager->getDiffuseurById($id)->getNom() == $_POST['new_diffuseur']){
                 $error .= "<p>Le diffuseur existe déjà</p>";
             } 
             if(!empty($error)){

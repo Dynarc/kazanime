@@ -45,7 +45,7 @@ class TagController{
             if(empty($_POST['new_tag'])){
                 $error = "<p>Vous devez mettre le nom du nouveau tag</p>";
             }
-            if(!empty($this->tagManager->getTagByName($_POST['new_tag'])) && $this->tagManager->getTagById($id)->getNom() != $_POST['new_tag']){
+            if(!empty($this->tagManager->getTagByName($_POST['new_tag'])) || $this->tagManager->getTagById($id)->getNom() == $_POST['new_tag']){
                 $error .= "<p>Le tag existe déjà</p>";
             } 
             if(!empty($error)){

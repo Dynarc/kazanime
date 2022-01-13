@@ -45,7 +45,7 @@ class StudioController{
             if(empty($_POST['new_studio'])){
                 $error = "<p>Vous devez mettre le nom du nouveau studio</p>";
             }
-            if(!empty($this->studioManager->getStudioByName($_POST['new_studio'])) && $this->studioManager->getStudioById($id)->getNom() != $_POST['new_studio']){
+            if(!empty($this->studioManager->getStudioByName($_POST['new_studio'])) || $this->studioManager->getStudioById($id)->getNom() == $_POST['new_studio']){
                 $error .= "<p>Le studio existe déjà</p>";
             } 
             if(!empty($error)){
