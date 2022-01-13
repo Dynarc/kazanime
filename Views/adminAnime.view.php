@@ -13,7 +13,7 @@
             <label for="date_fin">Date de fin de diffusion :</label>
             <input type="date" name="date_fin" required>
             <label for="synopsis">Synopsis :</label>
-            <textarea name="synopsis" class="synopsis "required></textarea>
+            <textarea name="synopsis" class="synopsis" required></textarea>
             <label for="nbr_episode">Nombre d'épisodes :</label>
             <input type="text" name="nbr_episode" required>
             <label for="duree_episode">Durée de chaque épisode en minutes :</label>
@@ -43,15 +43,15 @@
                     <img src="<?=URL?>public/image/animes/<?=$anime->getImage_miniature()?>" alt="Miniature de <?=$anime->getNom()?>">
                     <p><?=$anime->getNom()?></p>
                     <p><?=$anime->getNom_alt()?></p>
-                    <p><?=$anime->getDate_debut()?></p>
-                    <p><?=$anime->getDate_fin()?></p>
+                    <p><?=date('d-m-Y', strtotime($anime->getDate_debut()))?></p>
+                    <p><?=date('d-m-Y', strtotime($anime->getDate_fin()))?></p>
                     <p><?=$anime->getNombre_episode()?></p>
-                    <p><?=$anime->getDuree_episode()?></p>
+                    <p><?=$anime->getDuree_episode()?> min.</p>
                     <div>
-                        <button> <a href="<?=URL?>admin/anime/afficher/<?=$anime->getId()?>">Afficher</a></button>
-                        <button>
-                            <a href="<?=URL?>admin/anime/supprimer/<?=$anime->getId()?>">Supprimer</a>
-                        </button>
+                        <a href="<?=URL?>admin/anime/afficher/<?=$anime->getId()?>"><button>Afficher</button></a>
+
+                        <a href="<?=URL?>admin/anime/supprimer/<?=$anime->getId()?>"><button>Supprimer</button></a>
+                        
                     </div>
                 </div>
             <?php } ?>
