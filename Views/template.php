@@ -21,7 +21,7 @@
             <ul class="RO">
 
                 <li><a href="<?=URL?>accueil">Accueil</a></li>
-                <li><a href="<?=URL?>liste-anime">Liste des animes</a></li>
+                <li><a href="<?=URL?>anime">Liste des animes</a></li>
                 <li><a href="<?=URL?>proposer-anime">Proposer un anime</a></li>
                 <?php if(isset($_SESSION['user'])) { ?>
                 <li><a href="">Mon compte</a></li>
@@ -53,7 +53,7 @@
             <ul>
 
                 <li><a href="<?=URL?>accueil">Accueil</a></li>
-                <li><a href="<?=URL?>liste-anime">Liste des animes</a></li>
+                <li><a href="<?=URL?>anime">Liste des animes</a></li>
                 <li><a href="<?=URL?>proposer-anime">Proposer un anime </a></li>
                 <li><a href="">Mon compte</a></li>
                 <li><a href="">A propos</a></li>
