@@ -116,4 +116,12 @@ class Anime{
     public function setTags($tag){
         $this->tags[] = $tag;
     }
+
+    public function deleteTag($tagToDelete) {
+        foreach ($this->tags as $tag) {
+            if($tag == $tagToDelete) {
+                unset($tag);
+            }
+        }
+    }
 }
