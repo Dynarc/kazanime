@@ -256,7 +256,7 @@ class AnimeController {
     }
 
     public function displayAdminAnime($id) {
-        $allTags = $this->tagManager->getTags();
+        $animeTags = $this->animeManager->getAnimeAndTags($id);
         $anime = $this->animeManager->getAnimeById($id);
         require_once "views/adminAnimeDetail.view.php";
     }
