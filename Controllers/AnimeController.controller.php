@@ -20,9 +20,12 @@ class AnimeController {
     }
 
     public function displayAnime($id) {
-        $allTags = $this->tagManager->getTags();
         $anime = $this->animeManager->getAnimeById($id);
-        require_once "views/adminAnimeDetail.view.php";
+        if (empty($anime)) {
+            throw new Exception("L'anime n'existe pas");
+        }
+        var_dump($anime);
+        require_once 'views/anime.view.php';
     }
 
     // FIXME: doesn't work properly, BDD OK but OBJECT doesn't update
@@ -138,8 +141,8 @@ class AnimeController {
     }
 
     public function modifyAnime($id) {
-        var_dump($_POST);
-        var_dump($_FILES);
+        // var_dump($_POST);
+        // var_dump($_FILES);
         try {
             if(empty($_POST['nom'])) {
                 $error = "<p>Vous devez mettre le nom de l'anime</p>";
@@ -252,5 +255,9 @@ class AnimeController {
         header('Location: '.URL.'admin/anime');
     }
 
-    
+    public function displayAdminAnime($id) {
+        $allTags = $this->tagManager->getTags();
+        $anime = $this->animeManager->getAnimeById($id);
+        require_once "views/adminAnimeDetail.view.php";
+    }
 }
