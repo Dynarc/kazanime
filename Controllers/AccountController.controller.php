@@ -42,7 +42,9 @@ class AccountController{
 
     public function disconnect() {
         unset($_SESSION['user']);
-        setcookie('user', null, time() - 3600);
+        session_unset();
+        setcookie('user', null, time() - 3600, '/');
+        setcookie('id', null, time() - 3600, '/');
         header('Location: '.URL);
     }
 
