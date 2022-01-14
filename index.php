@@ -4,8 +4,10 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" :
 
 require_once 'controllers/globalController.controller.php';
 require_once 'controllers/accountController.controller.php';
+require_once 'controllers/animeController.controller.php';
 $accountController = new AccountController;
 $accountController->reconnect();
+$animeController = new AnimeController;
 
 if(empty($_GET['page'])){
 
@@ -24,11 +26,17 @@ if(empty($_GET['page'])){
                 require_once 'views/accueil.view.php';
                 unset($_SESSION['alert']);
                 break;
-            case 'liste-anime':
-                // a changer
-                require_once 'views/listeAnime.view.php';
+
+            case 'anime':
+                if(isset($url[1])) {
+                    $animeController->displayAnime($url[1]);
+                    require_once 'views/anime.view.php';
+                } else {
+                    // TODO
+                    require_once 'views/listeAnime.view.php';
+                }
                 break;
-            
+
             case 'proposer-anime':
                 // a changer
                 require_once 'views/proposerAnime.view.php';
@@ -92,7 +100,7 @@ if(empty($_GET['page'])){
                                                             break;
                                                     }
                                                 } else {
-                                                    $animeController->displayAnime($url[3]);
+                                                    $animeController->displayAdminAnime($url[3]);
                                                 }
                                             } else {
                                                 throw new Exception('Aucun anime à afficher');
@@ -281,11 +289,8 @@ if(empty($_GET['page'])){
 
         }
 
-
-        var_dump($_SESSION);
-        var_dump($_COOKIE);
-
     }catch (Exception $e){
         $test = $e->getMessage();
+        echo $test;
     }
 }
