@@ -47,7 +47,7 @@ class AccountController{
     }
 
     public function reconnect() {
-        if($_COOKIE['user'] && empty($_SESSION['user'])) {
+        if(!empty($_COOKIE['user']) && empty($_SESSION['user'])) {
             $userData = $this->accountManager->accountConnection($_COOKIE['user']);
             if (!empty($userData[0])) {
                 if (password_verify($userData[0]->pseudo.$userData[0]->mdp, $_COOKIE['id'])) {
