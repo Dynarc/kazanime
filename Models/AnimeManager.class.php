@@ -125,6 +125,17 @@ class AnimeManager extends Model{
         $this->detenirManager->addAnimeTagDB($id_anime, $tag);
     }
 
+    // WIP
+    public function getAnimeAndTags($id) {
+        $sql = "SELECT *, tag.nom as tag FROM detenir INNER JOIN anime ON anime.id_anime = detenir.id_anime AND anime.id_anime = :id RIGHT JOIN tag ON tag.id_tag = detenir.id_tag";
+        $req = $this->getDB()->prepare($sql);
+        $req->execute([
+            ':id' => $id
+        ]);
+        $result = $req->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+    }
+
     public function deleteAnimeTag($id_anime, $id_tag) {
         $this->detenirManager->deleteAnimeTagDB($id_anime, $id_tag);
     }
