@@ -30,19 +30,16 @@
             <form action="<?=URL?>admin/anime/afficher/<?=$anime->getId()?>/tags" method="POST">
                 <p>Liste des tags (WIP)</p>
                 <?php
-                foreach ($allTags as $tag) {
-                    if(!empty($anime->getTags())) {
-                        foreach ($anime->getTags() as $animeTag) {
-                            if($tag->getNom() == $animeTag->getNom()) {
-                                $isChecked = true;
-                            }
-                        }
+                foreach ($animeTags as $animeTag) {
+                    $isChecked = false;
+                    if($animeTag->id_anime != null) {
+                        $isChecked = true;
                     }
-                    echo '<label>'.htmlspecialchars($tag->getNom()).'</label>';
-                    if(!empty($isChecked)) {
-                        echo '<input type="checkbox" name="'.htmlspecialchars($tag->getNom()).'" id="'.$tag->getId().'" checked>';
+                    echo '<label>'.htmlspecialchars($animeTag->tag).'</label>';
+                    if($isChecked) {
+                        echo '<input type="checkbox" name="'.htmlspecialchars($animeTag->tag).'" id="'.$animeTag->id_tag.'" checked>';
                     } else {
-                        echo '<input type="checkbox" name="'.htmlspecialchars($tag->getNom()).'" id="'.$tag->getId().'">';
+                        echo '<input type="checkbox" name="'.htmlspecialchars($animeTag->tag).'" id="'.$animeTag->id_tag.'">';
                     }
                 }
                 ?>
