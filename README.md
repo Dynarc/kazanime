@@ -21,3 +21,4 @@
 ### TODO 
 - faire affichage admin + add studio, diffuseur,.....
 - FIX : bug quand j'update les tags d'un anime (esssayer d'ajouter un f() sur la class anime pour delete les tags)
+- essayer d'utiliser un LEFT ou RIGHT JOIN pour charger la liste des tags avec ceux deja lié a l'anime
