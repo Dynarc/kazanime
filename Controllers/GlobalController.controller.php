@@ -8,6 +8,7 @@ abstract class GlobalController{
             "type" => $type,
             "msg" => $message
         ];
+        $_SESSION['alert']['msg'] = str_replace('</p>', '<i class="fas fa-times"></i></p>', $_SESSION['alert']['msg']);
         return $_SESSION['alert'];
     }
 
