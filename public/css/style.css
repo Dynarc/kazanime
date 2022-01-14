@@ -736,14 +736,20 @@ body.newBackground{
 
 /* CRUD result */
 .message{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    min-width: 30%;
     width: 50%;
-    margin: auto;
-    margin-bottom: 2%;
+    max-width: 500px;
+    position: fixed;
+    bottom: 2%;
+    left: 2%;
 }
+
+.message>p {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
 .message.echec>p{
     color: var(--contrast-main-color);
     background: lightpink;
@@ -755,8 +761,7 @@ body.newBackground{
 .message>p{
     margin: 5px 0px;
     padding: 15px 20px;
-    border-radius: 50px;
-    
+    border: 2px solid;    
 }
 
 
