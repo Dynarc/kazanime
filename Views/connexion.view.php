@@ -23,16 +23,6 @@
 
     <p>Pas encore de compte ? <u><a href="<?=URL?>inscription">S'inscrire</a></u></p>
 
-    <?php
-        if (!empty($_SESSION['alert'])) :
-    ?>
-        <div class="message <?= $_SESSION['alert']['type'] ?>">
-            <?= $_SESSION['alert']['msg'] ?>
-        </div>
-    <?php
-        endif
-    ?>
-
 </section>
 
 

@@ -35,16 +35,6 @@
         <button class="crud-add">Ajouter un diffuseur</button>
     </section>
 
-    <?php
-        if (!empty($_SESSION['alert'])) :
-    ?>
-        <div class="message <?= $_SESSION['alert']['type'] ?>">
-            <?= $_SESSION['alert']['msg'] ?>
-        </div>
-    <?php
-        endif
-    ?>
-
 
 <?php
 $titre = "Admin diffuseur";

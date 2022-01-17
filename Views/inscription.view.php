@@ -24,16 +24,6 @@
 
     <p>Vous avez déjà un compte ? <u><a href="<?=URL?>connexion">Se connecter</a></u></p>
 
-    <?php
-        if (!empty($_SESSION['alert'])) :
-    ?>
-        <div class="message <?= $_SESSION['alert']['type'] ?>">
-            <?= $_SESSION['alert']['msg'] ?>
-        </div>
-    <?php
-        endif
-    ?>
-
 </section>
 
 

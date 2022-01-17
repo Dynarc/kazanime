@@ -26,15 +26,6 @@
         </form>
         <button class="crud-add">Ajouter un anime</button>
         
-        <?php
-            if (!empty($_SESSION['alert'])) :
-        ?>
-            <div class="message <?= $_SESSION['alert']['type'] ?>">
-                <?= $_SESSION['alert']['msg'] ?>
-            </div>
-        <?php
-            endif
-        ?>
 
         <article>
 

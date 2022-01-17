@@ -30,16 +30,6 @@
         <button class="crud-add">Ajouter un genre</button>
     </section>
 
-    <?php
-        if (!empty($_SESSION['alert'])) :
-    ?>
-        <div class="message <?= $_SESSION['alert']['type'] ?>">
-            <?= $_SESSION['alert']['msg'] ?>
-        </div>
-    <?php
-        endif
-    ?>
-
 
 <?php
 $titre = "Admin genre";
