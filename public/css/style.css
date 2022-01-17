@@ -744,24 +744,57 @@ body.newBackground{
     left: 2%;
 }
 
-.message>p {
+.message>div {
+    border: 2px solid;
+    margin: 2% 0%;
+}
+
+.message>div>p {
+    margin: 5px 0px;
+    padding: 2% 5% 3% 5%;
+}
+
+.message>div>p>i {
+    cursor: pointer;
+}
+
+.message progress {
+    border: unset;
+    width: 100%;
+    -webkit-appearance: none;
+    position: relative;
+    top: -7px;
+}
+.message.echec ::-webkit-progress-bar {
+    background: transparent;
+}
+
+.message.echec ::-webkit-progress-value {
+    background-color: var(--contrast-main-color);
+}
+
+.message.succes ::-webkit-progress-bar {
+    background: transparent;
+}
+
+.message.succes ::-webkit-progress-value {
+    background-color: #0d9511;
+}
+
+.message>div>p{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
 }
 
-.message.echec>p{
-    color: var(--contrast-main-color);
+.message.echec>div{
     background: lightpink;
+    color: var(--contrast-main-color);
 }
-.message.succes>p{
-    color: #55D437;
-    background: darkslategrey;
-}
-.message>p{
-    margin: 5px 0px;
-    padding: 15px 20px;
-    border: 2px solid;    
+
+.message.succes>div{
+    background: #b0f39f;
+    color: #0d9511;
 }
 
 
