@@ -991,6 +991,6 @@ body.newBackground{
 
 @media (max-width: 500px) {
     .carousel-frame {
-        min-width: 96%
+        min-width: 96%;
     }
 }
