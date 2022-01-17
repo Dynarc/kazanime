@@ -10,7 +10,7 @@ function nextFrame(){
             
             if(valueRight+100 < carousel.length*50){
                 valueRight += 50; 
-                element.style.right = valueRight+'%'
+                element.style.right = valueRight+'%';
             }
         });
     } else {
@@ -20,7 +20,7 @@ function nextFrame(){
             
             if(valueRight+100 < carousel.length*100){
                 valueRight += 100; 
-                element.style.right = valueRight+'%'
+                element.style.right = valueRight+'%';
             }
         });
     }
@@ -35,7 +35,7 @@ function previousFrame(){
             
             if(valueRight > 0){
                 valueRight -= 50; 
-                element.style.right = valueRight+'%'
+                element.style.right = valueRight+'%';
             }
         });
     } else {
@@ -45,7 +45,7 @@ function previousFrame(){
             
             if(valueRight > 0){
                 valueRight -= 100; 
-                element.style.right = valueRight+'%'
+                element.style.right = valueRight+'%';
             }
         });
     }
@@ -54,3 +54,13 @@ function previousFrame(){
 // event carousel
 nextButton.addEventListener('click', nextFrame);
 previousButton.addEventListener('click', previousFrame);
+
+
+// Prevent carousel to glitch due to width and position changes
+carousel[0].addEventListener('transitionrun', (e)=>{
+    if(e.propertyName === "min-width") {
+        carousel.forEach(element => {
+            element.style.right = '0%';
+        });
+    }
+});
