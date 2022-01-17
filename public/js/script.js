@@ -2,6 +2,9 @@ let openSearch = document.querySelector('.fa-search');
 let closeSearch = document.querySelector('.fa-times');
 let search = document.querySelector('.search');
 let kazanime = document.querySelector('#brand>h1');
+let menu = document.querySelector('nav');
+let openMenu = document.querySelector('.responsive-menu>.fa-bars');
+let closeMenu = document.querySelector('.responsive-menu>.fa-times');
 
 
 function displaySearchBar(){
@@ -36,9 +39,24 @@ function barProgression(element, time) {
     }
 }
 
+function displayResponsiveMenu(e) {
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    if(e.target === openMenu) {
+        openMenu.style.display = 'none';
+        closeMenu.style.display = 'inline-block';
+    } else if (e.target === closeMenu) {
+        openMenu.style.display = 'inline-block';
+        closeMenu.style.display = 'none';
+    }
+}
+
 // event nav's search bar
 openSearch.addEventListener('click', displaySearchBar);
 closeSearch.addEventListener('click', hideSearchBar);
+
+// Display responsive menu
+openMenu.addEventListener('click', displayResponsiveMenu);
+closeMenu.addEventListener('click', displayResponsiveMenu);
 
 // Display error or succes messages
 displayMessage();
