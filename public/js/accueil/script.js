@@ -3,27 +3,52 @@ let nextButton = document.querySelector('.fa-chevron-right');
 let previousButton = document.querySelector('.fa-chevron-left');
 
 function nextFrame(){
-    carousel.forEach(element => {
-        let right = element.style.right;
-        let valueRight = +right.slice(0,right.length-1);
-        
-        if(valueRight+100 < carousel.length*50){
-            valueRight += 50; 
-            element.style.right = valueRight+'%'
-        }
-    });
+    if(window.visualViewport.width > 500) {
+        carousel.forEach(element => {
+            let right = element.style.right;
+            let valueRight = +right.slice(0,right.length-1);
+            
+            if(valueRight+100 < carousel.length*50){
+                valueRight += 50; 
+                element.style.right = valueRight+'%'
+            }
+        });
+    } else {
+        carousel.forEach(element => {
+            let right = element.style.right;
+            let valueRight = +right.slice(0,right.length-1);
+            
+            if(valueRight+100 < carousel.length*100){
+                valueRight += 100; 
+                element.style.right = valueRight+'%'
+            }
+        });
+    }
+    
 }
 
 function previousFrame(){
-    carousel.forEach(element => {
-        let right = element.style.right;
-        let valueRight = +right.slice(0,right.length-1);
-        
-        if(valueRight > 0){
-            valueRight -= 50; 
-            element.style.right = valueRight+'%'
-        }
-    });
+    if(window.visualViewport.width > 500) {
+        carousel.forEach(element => {
+            let right = element.style.right;
+            let valueRight = +right.slice(0,right.length-1);
+            
+            if(valueRight > 0){
+                valueRight -= 50; 
+                element.style.right = valueRight+'%'
+            }
+        });
+    } else {
+        carousel.forEach(element => {
+            let right = element.style.right;
+            let valueRight = +right.slice(0,right.length-1);
+            
+            if(valueRight > 0){
+                valueRight -= 100; 
+                element.style.right = valueRight+'%'
+            }
+        });
+    }
 }
 
 // event carousel
