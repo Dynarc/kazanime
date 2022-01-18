@@ -769,12 +769,11 @@ body.newBackground{
 }
 
 .message progress {
-    border: unset;
     width: 100%;
     -webkit-appearance: none;
-    position: relative;
-    top: -7px;
+    display: block;
 }
+
 .message.echec ::-webkit-progress-bar {
     background: transparent;
 }
