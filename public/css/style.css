@@ -954,6 +954,10 @@ body.newBackground{
         margin-bottom: 150px;
     }
 
+    header>nav>ul>li {
+        text-align: center;
+    }
+
     header>nav>ul>li>a, header>div>i {
         font-size: 40px !important;
     }
