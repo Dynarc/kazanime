@@ -62,7 +62,9 @@ class AccountManager extends Model{
     }
 
     public function getAccountById($id) {
-        $sql = "SELECT id_user, pseudo, mail, mdp, date_inscription, nom AS role FROM user INNER JOIN role ON user.id_role = role.id_role WHERE id_user = :id";
+        $sql = "SELECT id_user, pseudo, mail, mdp, date_inscription, nom AS role FROM user
+                INNER JOIN role ON user.id_role = role.id_role
+                WHERE id_user = :id";
         $req = $this->getDB()->prepare($sql);
         $req->execute([
             ":id" => $id
@@ -72,7 +74,9 @@ class AccountManager extends Model{
     }
 
     public function accountConnection($pseudo) {
-        $sql = "SELECT id_user, pseudo, mail, mdp, date_inscription, nom AS role FROM user INNER JOIN role ON user.id_role = role.id_role WHERE pseudo = :pseudo OR mail = :pseudo";
+        $sql = "SELECT id_user, pseudo, mail, mdp, date_inscription, nom AS role FROM user
+                INNER JOIN role ON user.id_role = role.id_role
+                WHERE pseudo = :pseudo OR mail = :pseudo";
         $req = $this->getDB()->prepare($sql);
         $req->execute([
             ":pseudo" => $pseudo
