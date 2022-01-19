@@ -21,6 +21,13 @@ if(empty($_GET['page'])){
 
         switch ($url[0]){
 
+            // SHOW TEMPLATE
+            case 'template':
+                $titre = 'template';
+                $content = '';
+                require_once './Views/template.php';
+                break;
+
             case 'accueil':
                 // a changer quand back ready
                 require_once 'views/accueil.view.php';
