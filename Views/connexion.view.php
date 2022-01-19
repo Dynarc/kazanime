@@ -19,7 +19,7 @@
 
     </form>
 
-    <u><a href="">Mot de passe oublié ?</a></u>
+    <u><a href="">Mot de passe oublié ?</a></u> <!-- WIP -->
 
     <p>Pas encore de compte ? <u><a href="<?=URL?>inscription">S'inscrire</a></u></p>
 
