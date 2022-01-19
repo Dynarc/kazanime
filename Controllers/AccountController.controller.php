@@ -115,7 +115,6 @@ class AccountController{
     }
 
     public function connexion() {
-        $error = "";
         try {
             if(empty($_POST['pseudo'])) {
                 $error = "<p>Vous devez mettre votre pseudo</p>";
