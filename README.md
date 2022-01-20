@@ -23,3 +23,4 @@
 - error message (progress bar + delete on click)
 - FIX : reset button et display du menu (repasser en display inline-block et remettre le menu burger a la place de la croix) quand on change de responsivité
 - unset $_session['alert'] après chaque require_once
+- Sortir les a des button dans admin et modif js en conséquence
