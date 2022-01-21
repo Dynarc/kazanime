@@ -1,7 +1,7 @@
 <?php
 require_once 'Anime.class.php';
 require_once 'model.class.php';
-require_once 'detenirManager.class.php';
+require_once 'DetenirManager.class.php';
 
 class AnimeManager extends Model{
     private $animes;
