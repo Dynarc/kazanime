@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Models/accountManager.class.php';
+require_once 'Models/AccountManager.class.php';
 
 class AccountController{
 
@@ -13,17 +13,17 @@ class AccountController{
     public function displayAccounts(){
         $this->accountManager->loadingAccounts();
         $accounts = $this->accountManager->getAccounts();
-        require_once 'views/adminAccount.view.php';
+        require_once 'Views/adminAccount.view.php';
         unset($_SESSION['alert']);
     }
 
     public function inscriptionHome(){
-        require_once 'views/inscription.view.php';
+        require_once 'Views/inscription.view.php';
         unset($_SESSION['alert']);
     }
 
     public function connexionHome() {
-        require_once 'views/connexion.view.php';
+        require_once 'Views/connexion.view.php';
         unset($_SESSION['alert']);
     }
 

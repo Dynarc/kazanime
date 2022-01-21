@@ -1,6 +1,6 @@
 <?php
 
-require_once "models/DiffuseurManager.class.php";
+require_once "Models/DiffuseurManager.class.php";
 
 class DiffuseurController{
 
@@ -13,7 +13,7 @@ class DiffuseurController{
 
     public function displayDiffuseurs(){
         $diffuseurs = $this->diffuseurManager->getDiffuseurs();
-        require_once 'views/adminDiffuseur.view.php';
+        require_once 'Views/adminDiffuseur.view.php';
         unset($_SESSION['alert']);
     }
 

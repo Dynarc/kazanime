@@ -1,6 +1,6 @@
 <?php
 
-require_once "models/GenreManager.class.php";
+require_once "Models/GenreManager.class.php";
 
 class GenreController{
 
@@ -13,7 +13,7 @@ class GenreController{
 
     public function displayGenres(){
         $genres = $this->genreManager->getGenres();
-        require_once 'views/adminGenre.view.php';
+        require_once 'Views/adminGenre.view.php';
         unset($_SESSION['alert']);
     }
 

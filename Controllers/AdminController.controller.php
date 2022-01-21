@@ -3,7 +3,7 @@
 class AdminController{
 
     public function adminHome(){
-        require_once 'views/admin.view.php';
+        require_once 'Views/admin.view.php';
     }
 
 }

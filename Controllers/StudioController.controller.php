@@ -1,6 +1,6 @@
 <?php
 
-require_once "models/StudioManager.class.php";
+require_once "Models/StudioManager.class.php";
 
 class StudioController{
 
@@ -13,7 +13,7 @@ class StudioController{
 
     public function displayStudios(){
         $studios = $this->studioManager->getStudios();
-        require_once 'views/adminStudio.view.php';
+        require_once 'Views/adminStudio.view.php';
         unset($_SESSION['alert']);
     }
 

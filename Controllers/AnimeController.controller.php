@@ -1,6 +1,6 @@
 <?php
 
-require_once "models/AnimeManager.class.php";
+require_once "Models/AnimeManager.class.php";
 
 class AnimeController {
     
@@ -15,7 +15,7 @@ class AnimeController {
 
     public function displayAnimes() {
         $animes = $this->animeManager->getAnimes();
-        require_once 'views/adminAnime.view.php';
+        require_once 'Views/adminAnime.view.php';
         unset($_SESSION['alert']);
     }
 
@@ -25,7 +25,7 @@ class AnimeController {
             throw new Exception("L'anime n'existe pas");
         }
         var_dump($anime);
-        require_once 'views/anime.view.php';
+        require_once 'Views/anime.view.php';
     }
 
     // FIXME: doesn't work properly, BDD OK but OBJECT doesn't update
@@ -262,6 +262,6 @@ class AnimeController {
     public function displayAdminAnime($id) {
         $animeTags = $this->animeManager->getAnimeAndTags($id);
         $anime = $this->animeManager->getAnimeById($id);
-        require_once "views/adminAnimeDetail.view.php";
+        require_once "Views/adminAnimeDetail.view.php";
     }
 }

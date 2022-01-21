@@ -2,16 +2,16 @@
 session_start();
 define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
-require_once 'controllers/globalController.controller.php';
-require_once 'controllers/accountController.controller.php';
-require_once 'controllers/animeController.controller.php';
+require_once 'Controllers/GlobalController.controller.php';
+require_once 'Controllers/AccountController.controller.php';
+require_once 'Controllers/AnimeController.controller.php';
 $accountController = new AccountController;
 $accountController->reconnect();
 $animeController = new AnimeController;
 
 if(empty($_GET['page'])){
 
-    require_once 'views/accueil.view.php';
+    require_once 'Views/accueil.view.php';
 
 } else{
 
@@ -30,23 +30,23 @@ if(empty($_GET['page'])){
 
             case 'accueil':
                 // a changer quand back ready
-                require_once 'views/accueil.view.php';
+                require_once 'Views/accueil.view.php';
                 unset($_SESSION['alert']);
                 break;
 
             case 'anime':
                 if(isset($url[1])) {
                     $animeController->displayAnime($url[1]);
-                    require_once 'views/anime.view.php';
+                    require_once 'Views/anime.view.php';
                 } else {
                     // TODO
-                    require_once 'views/listeAnime.view.php';
+                    require_once 'Views/listeAnime.view.php';
                 }
                 break;
 
             case 'proposer-anime':
                 // a changer
-                require_once 'views/proposerAnime.view.php';
+                require_once 'Views/proposerAnime.view.php';
                 break;
 
             case 'connexion':
@@ -68,7 +68,7 @@ if(empty($_GET['page'])){
                 break;
 
             case 'search':
-                require_once 'controllers/SearchController.controller.php';
+                require_once 'Controllers/SearchController.controller.php';
                 if(!empty($_POST['search'])){
                     $search = new Search($_POST['search']);
                     $search->checkExist();
@@ -79,7 +79,7 @@ if(empty($_GET['page'])){
 
             case 'admin':
                 if($_SESSION['user']->role == 'admin') {
-                    require_once 'controllers/AdminController.controller.php';
+                    require_once 'Controllers/AdminController.controller.php';
                     $adminController = new AdminController;
 
                     if (isset($url[1])){
@@ -90,7 +90,7 @@ if(empty($_GET['page'])){
                                 break;
                             
                             case 'anime':
-                                require_once 'controllers/AnimeController.controller.php';
+                                require_once 'Controllers/AnimeController.controller.php';
                                 $animeController = new AnimeController;
                                 if(isset($url[2])) {
                                     switch ($url[2]){
@@ -140,7 +140,7 @@ if(empty($_GET['page'])){
                                 break;
                             
                             case 'tag':
-                                require_once 'controllers/TagController.controller.php';
+                                require_once 'Controllers/TagController.controller.php';
                                 $tagController = new TagController;
                                 if(isset($url[2])){
                                     switch ($url[2]){
@@ -172,7 +172,7 @@ if(empty($_GET['page'])){
                                 break;
 
                             case 'genre':
-                                require_once 'controllers/GenreController.controller.php';
+                                require_once 'Controllers/GenreController.controller.php';
                                 $genreController = new GenreController;
                                 if(isset($url[2])){
                                     switch ($url[2]){
@@ -204,7 +204,7 @@ if(empty($_GET['page'])){
                                 break;
                             
                             case 'studio':
-                                require_once 'controllers/StudioController.controller.php';
+                                require_once 'Controllers/StudioController.controller.php';
                                 $studioController = new StudioController;
                                 if(isset($url[2])){
                                     switch ($url[2]){
@@ -236,7 +236,7 @@ if(empty($_GET['page'])){
                                 break;
 
                             case 'diffuseur':
-                                require_once 'controllers/DiffuseurController.controller.php';
+                                require_once 'Controllers/DiffuseurController.controller.php';
                                 $diffuseurController = new DiffuseurController;
                                 if(isset($url[2])){
                                     switch ($url[2]){

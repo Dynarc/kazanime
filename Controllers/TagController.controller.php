@@ -1,6 +1,6 @@
 <?php
 
-require_once "models/TagManager.class.php";
+require_once "Models/TagManager.class.php";
 
 class TagController{
 
@@ -13,7 +13,7 @@ class TagController{
 
     public function displayTags(){
         $tags = $this->tagManager->getTags();
-        require_once 'views/adminTag.view.php';
+        require_once 'Views/adminTag.view.php';
         unset($_SESSION['alert']);
     }
 
