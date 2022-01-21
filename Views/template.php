@@ -14,7 +14,7 @@
     <header>
         <div id="brand">
             <a href="<?=URL?>admin"><h1>Kazanime</h1></a>
-            <a href='https://fr.freepik.com/vecteurs/fond'><small>Fond vecteur créé par upklyak - fr.freepik.com</small></a>
+            <a href='https://fr.freepik.com/vecteurs/fond' target="_blank"><small>Fond vecteur créé par upklyak - fr.freepik.com</small></a>
         </div>
 
         <nav>
