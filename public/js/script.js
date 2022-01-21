@@ -40,7 +40,7 @@ function barProgression(element, time) {
 }
 
 function displayResponsiveMenu(e) {
-    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    menu.classList.toggle("responsive-nav");
     if(e.target === openMenu) {
         openMenu.style.display = 'none';
         closeMenu.style.display = 'inline-block';
