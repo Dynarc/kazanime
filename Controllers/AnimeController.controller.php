@@ -127,11 +127,15 @@ class AnimeController {
             $newImage = strtolower(str_replace(' ', '-', $_POST['nom']).str_replace('image/','.', $_FILES['image']['type']));
             $newImageMini = strtolower(str_replace(' ', '-', $_POST['nom']).'-mini'.str_replace('image/','.', $_FILES['image_mini']['type']));
 
-            move_uploaded_file($_FILES['image']['tmp_name'], 'public/image/animes/'.$newImage);
-            move_uploaded_file($_FILES['image_mini']['tmp_name'], 'public/image/animes/'.$newImageMini);
+            $result = $this->animeManager->addAnimeDB($_POST['nom'], $_POST['nom_alt'], $newImage, $newImageMini, $_POST['date_debut'], $_POST['date_fin'], $_POST['synopsis'], $_POST['nbr_episode'], $_POST['duree_episode']);
 
-            $this->animeManager->addAnimeDB($_POST['nom'], $_POST['nom_alt'], $newImage, $newImageMini, $_POST['date_debut'], $_POST['date_fin'], $_POST['synopsis'], $_POST['nbr_episode'], $_POST['duree_episode']);
+            if($result) {
+                move_uploaded_file($_FILES['image']['tmp_name'], 'public/image/animes/'.$newImage);
+                move_uploaded_file($_FILES['image_mini']['tmp_name'], 'public/image/animes/'.$newImageMini);
+            }
+
             GlobalController::alert("succes","<p>L'anime a bien été ajouté</p>");
+
 
         } catch (Exception $error) {
             GlobalController::alert('echec', $error->getMessage());
