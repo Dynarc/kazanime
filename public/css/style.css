@@ -579,7 +579,7 @@ input[type='date']::-webkit-calendar-picker-indicator{
     flex-direction: column;
     align-items: center;
     width: 50%;
-    max-width: 800px;
+    max-width: 700px;
     margin: auto;
     margin-top: 0px;
     margin-bottom: 4%;
@@ -1020,6 +1020,12 @@ body.newBackground{
         height: 12px;
     }
 
+    /* Login page */
+    .login {
+        width: 80%;
+        min-width: 300px;
+    }
+
     /* footer */
     footer>a {
         visibility: visible;
@@ -1039,5 +1045,14 @@ body.newBackground{
     /* Accueil */
     .carousel-frame {
         min-width: 96%;
+    }
+
+    /* Header */
+    #brand>a>h1 {
+        font-size: 15vw;
+    }
+
+    #brand>a>small {
+        font-size: 3vw;
     }
 }
