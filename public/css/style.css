@@ -926,11 +926,14 @@ body.newBackground{
 }
 
 @media (max-width: 1000px) {
-    
     /* Accueil */
     .vedette {
         width: 94%;
         padding: 2% 3%;
+    }
+
+    .responsive-nav {
+        display: flex;
     }
 
     header>nav {
