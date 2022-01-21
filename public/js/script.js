@@ -34,7 +34,6 @@ function barProgression(element, time) {
         element.value += 1;
         setTimeout(() => barProgression(element, time),time);
     } else {
-        clearTimeout(barProgression);
         element.parentElement.remove();
     }
 }
