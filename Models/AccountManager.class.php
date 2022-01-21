@@ -1,6 +1,6 @@
 <?php
 require_once 'Account.class.php';
-require_once 'Model.class.php';
+require_once 'model.class.php';
 
 class AccountManager extends Model{
     private $accounts;

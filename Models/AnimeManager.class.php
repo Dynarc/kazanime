@@ -1,6 +1,6 @@
 <?php
 require_once 'Anime.class.php';
-require_once 'Model.class.php';
+require_once 'model.class.php';
 require_once 'detenirManager.class.php';
 
 class AnimeManager extends Model{

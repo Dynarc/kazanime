@@ -1,5 +1,5 @@
 <?php
-require_once 'Model.class.php';
+require_once 'model.class.php';
 require_once 'Studio.class.php';
 
 class StudioManager extends Model{

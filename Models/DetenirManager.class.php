@@ -1,7 +1,7 @@
 <?php
 require_once 'TagManager.class.php';
 require_once 'AnimeManager.class.php';
-require_once 'Model.class.php';
+require_once 'model.class.php';
 
 class DetenirManager extends Model{
 
