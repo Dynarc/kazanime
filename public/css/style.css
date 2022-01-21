@@ -604,6 +604,7 @@ input[type='date']::-webkit-calendar-picker-indicator{
 
 .login>form>input{
     margin-bottom: 10%;
+    max-width: 250px;
 }
 
 body.newBackground{
@@ -937,6 +938,10 @@ body.newBackground{
         display: flex;
     }
 
+    #brand {
+        background: 50% 75%/ cover url(../image/146Z_2107.w026.n002.573B.p1.573-compress.jpg);
+    }
+
     header {
         z-index: unset;
     }
@@ -959,7 +964,7 @@ body.newBackground{
         flex-direction: column;
         justify-content: space-between;
         height: 50%;
-        margin-bottom: 150px;
+        margin-bottom: 14vh;
     }
 
     header>nav>ul>li {
@@ -967,7 +972,7 @@ body.newBackground{
     }
 
     header>nav>ul>li>a, header>div>i {
-        font-size: 40px !important;
+        font-size: 25px !important;
     }
 
     footer {
@@ -1024,6 +1029,10 @@ body.newBackground{
     .login {
         width: 80%;
         min-width: 300px;
+    }
+
+    body.newBackground {
+        background: 65% / cover url(../image/jlwd_2ucy_201006-compress.jpg);
     }
 
     /* footer */
