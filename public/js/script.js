@@ -15,13 +15,28 @@ function hideSearchBar(){
     search.style.display = 'none';
 }
 
+/*
+   Message d'erreur type (échec) :
+ *  <div class="message echec">
+ *      <div>
+ !          <progress max="200" value="0"></progress>
+ *          <p>Erreur 1<i class="fas fa-times"></i></p>
+ *      </div>
+ *      <div>
+ !          <progress max="200" value="0"></progress>
+ *          <p>Erreur 2<i class="fas fa-times"></i></p>
+ *      </div>
+ *  </div>
+*/
 
-
+/** 
+ * Add progress bar for each alert message and start them
+ * Add eventListener on icon to remove manually the message 
+*/
 function displayMessage() {
     let messages = document.querySelector('.message');
     if(messages) {
-        for (let i = 0; i < messages.children.length; i++) {
-            let message = messages.children[i];
+        for (const message of messages.children) {
             message.innerHTML = '<progress max="200" value="0"></progress>' + message.innerHTML;
             barProgression(message.firstChild, 30);
             message.lastChild.lastChild.addEventListener('click', () => message.remove());
@@ -29,9 +44,14 @@ function displayMessage() {
     }
 }
 
+/**
+ *  Incrementing progress bar and delete it when it's finished
+ *  @param element Element (progress here) to focus
+ *  @param time Time between incrementing
+*/  
 function barProgression(element, time) {
-    if(element.value < 200) {
-        element.value += 1;
+    if(element.value < element.max) {
+        element.value ++;
         setTimeout(() => barProgression(element, time),time);
     } else {
         element.parentElement.remove();
