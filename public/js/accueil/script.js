@@ -2,61 +2,41 @@ let carousel = document.querySelectorAll('.carousel-frame');
 let nextButton = document.querySelector('.fa-chevron-right');
 let previousButton = document.querySelector('.fa-chevron-left');
 
-function nextFrame(){
-    if(window.visualViewport.width > 500) {
-        carousel.forEach(element => {
-            let right = element.style.right;
-            let valueRight = +right.slice(0,right.length-1);
-            
-            if(valueRight+100 < carousel.length*50){
-                valueRight += 50; 
-                element.style.right = valueRight+'%';
-            }
-        });
-    } else {
-        carousel.forEach(element => {
-            let right = element.style.right;
-            let valueRight = +right.slice(0,right.length-1);
-            
-            if(valueRight+100 < carousel.length*100){
-                valueRight += 100; 
-                element.style.right = valueRight+'%';
-            }
-        });
-    }
-    
+function nextFrame(size){
+    carousel.forEach(element => {
+        let right = element.style.right;
+        let valueRight = +right.slice(0,right.length-1);
+        
+        if(valueRight+100 < carousel.length*size){
+            valueRight += size; 
+            element.style.right = valueRight+'%';
+        }
+    });
 }
 
-function previousFrame(){
-    if(window.visualViewport.width > 500) {
-        carousel.forEach(element => {
-            let right = element.style.right;
-            let valueRight = +right.slice(0,right.length-1);
-            
-            if(valueRight > 0){
-                valueRight -= 50; 
-                element.style.right = valueRight+'%';
-            }
-        });
-    } else {
-        carousel.forEach(element => {
-            let right = element.style.right;
-            let valueRight = +right.slice(0,right.length-1);
-            
-            if(valueRight > 0){
-                valueRight -= 100; 
-                element.style.right = valueRight+'%';
-            }
-        });
-    }
+function previousFrame(size){
+    carousel.forEach(element => {
+        let right = element.style.right;
+        let valueRight = +right.slice(0,right.length-1);
+        
+        if(valueRight > 0){
+            valueRight -= size; 
+            element.style.right = valueRight+'%';
+        }
+    });
 }
 
-// event carousel
-nextButton.addEventListener('click', nextFrame);
-previousButton.addEventListener('click', previousFrame);
+/**
+ * eventListener for carousel
+ *! When window.visualViewport.width > 500, only one frame is displayed on the carousel
+ *! else, two are displayed
+ *? So we move by 50% if two frames are displayed, 100% if only one
+ */
+nextButton.addEventListener('click', () => nextFrame(window.visualViewport.width > 500 ? 50 : 100));
+previousButton.addEventListener('click', () => previousFrame(window.visualViewport.width > 500 ? 50 : 100));
 
 
-// Prevent carousel to glitch due to width and position changes
+// Prevent carousel from glitching because of responsive width and position changes => position reset
 carousel[0].addEventListener('transitionrun', (e)=>{
     if(e.propertyName === "min-width") {
         carousel.forEach(element => {
