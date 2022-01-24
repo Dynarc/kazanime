@@ -166,11 +166,7 @@ nav ul{
     align-items: baseline;
 }
 
-nav ul li a{
-    font-size: 30px;
-}
-
-nav ul li i{
+nav ul li a, nav ul li i{
     font-size: 30px;
 }
 
@@ -938,10 +934,6 @@ body.newBackground{
         display: flex;
     }
 
-    #brand {
-        background: 50% 75%/ cover url(../image/146Z_2107.w026.n002.573B.p1.573-compress.jpg);
-    }
-
     header {
         z-index: unset;
     }
@@ -973,11 +965,6 @@ body.newBackground{
 
     header>nav>ul>li>a, header>div>i {
         font-size: 25px !important;
-    }
-
-    footer {
-        visibility: hidden;
-        margin-top: 1%;
     }
 
     .responsive-menu {
