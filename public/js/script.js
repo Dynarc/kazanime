@@ -16,7 +16,7 @@ function hideSearchBar(){
 }
 
 /*
-   Message d'erreur type (échec) :
+   Message d'alerte type (échec) :
  *  <div class="message echec">
  *      <div>
  !          <progress max="200" value="0"></progress>
@@ -78,4 +78,4 @@ openMenu.addEventListener('click', displayResponsiveMenu);
 closeMenu.addEventListener('click', displayResponsiveMenu);
 
 // Display error or succes messages
-displayMessage();
+window.onload = displayMessage();
