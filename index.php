@@ -29,6 +29,10 @@ if(empty($_GET['page'])){
                 require_once './Views/template.php';
                 break;
 
+            case 'robots.txt':
+                require_once './robots.txt';
+                break;
+
             case 'accueil':
                 // a changer quand back ready
                 require_once 'Views/accueil.view.php';
