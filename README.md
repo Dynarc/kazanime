@@ -26,4 +26,4 @@
 - Sortir les a des button dans admin et modif js en conséquence
 - test si ok avant de delete image / ajouter image / rename image quand on ajoute/modifie/supprime un anime
 - fix case sensitivity js folder (and other)
-- compress images (BG top && BG connexion/inscription)
+- compress images (BG top && BG connexion/inscription) => more compression and compress in web format
