@@ -13,6 +13,7 @@ $animeController = new AnimeController;
 if(empty($_GET['page'])){
 
     require_once 'Views/accueil.view.php';
+    unset($_SESSION['alert']);
 
 } else{
 
