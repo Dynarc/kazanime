@@ -42,9 +42,9 @@ class AccountController{
 
     public function disconnect() {
         unset($_SESSION['user']);
-        session_unset();
         setcookie('user', null, time() - 3600, '/');
         setcookie('id', null, time() - 3600, '/');
+        GlobalController::alert("succes","<p>Vous avez bien été déconnecté</p>");
         header('Location: '.URL);
     }
 
