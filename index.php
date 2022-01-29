@@ -10,6 +10,8 @@ $accountController = new AccountController;
 $accountController->reconnect();
 $animeController = new AnimeController;
 
+//SERV
+
 if(empty($_GET['page'])){
 
     require_once 'Views/accueil.view.php';
