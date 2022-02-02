@@ -27,3 +27,16 @@
 - test si ok avant de delete image / ajouter image / rename image quand on ajoute/modifie/supprime un anime
 - fix case sensitivity js folder (and other)
 - compress images (BG top && BG connexion/inscription) => more compression and compress in web format
+
+
+### ACCESSIBILITY
+- add id to input to link with label
+
+
+### PERFORMANCE
+- check if I can reduce css/js of external library
+
+
+### SECURITY
+- add rel= noopener or noreffer to avoid sending information that can be used by the website to copy your identity
+- add CSP `<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';">`
