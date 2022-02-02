@@ -7,13 +7,13 @@
     <form action="<?=URL?>connexion/connect" method="POST">
         
         <label for="pseudo">Pseudo</label>
-        <input type="text" name="pseudo" required>
+        <input type="text" name="pseudo" id="pseudo" required>
 
         <label for="password">Mot de passe</label>
-        <input type="password" name="password" required>
+        <input type="password" name="password" id="password" required>
 
         <label for="remember">Se souvenir de moi ?</label>
-        <input type="checkbox" name="remember">
+        <input type="checkbox" name="remember" id="remember">
 
         <input type="submit" value="Se connecter" class="RO">
 
