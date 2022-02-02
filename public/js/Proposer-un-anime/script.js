@@ -15,8 +15,7 @@ function request(e){
 
 function getApi(){
     let data = new FormData(document.querySelector('section form'));
-    // hard link
-    fetch("http://localhost/Kazanime/search", {
+    fetch(window.location.origin+"/search", {
 	    method: "POST",
         body: data
     })
