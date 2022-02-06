@@ -605,6 +605,7 @@ input[type='date']::-webkit-calendar-picker-indicator{
 
 body.newBackground{
     background: 65% / cover url("../image/jlwd_2ucy_201006-web.avif");
+    background-attachment:fixed;
 }
 
 /* proposer un anime */
@@ -1018,11 +1019,8 @@ body.newBackground{
         min-width: 300px;
     }
 
-    /* footer */
-    footer>a {
-        visibility: visible;
-        position: fixed;
-        bottom: 0px;
+    nav {
+        display: none;
     }
 }
 
