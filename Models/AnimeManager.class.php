@@ -78,6 +78,7 @@ class AnimeManager extends Model{
             );
             $this->addAnime($anime);
         }
+        return $result;
     }
 
     public function modifyAnimeDB($id, $nom, $nomAlt, $img, $imgMini, $dateDebut, $dateFin, $synopsis, $nbrEpisode, $dureeEpisode) {
