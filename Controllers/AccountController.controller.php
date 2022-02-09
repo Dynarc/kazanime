@@ -29,7 +29,7 @@ class AccountController{
 
     public function connect($user, $time) {
         $_SESSION['user'] = $user;
-        if ($time != null) $this->rememberUser($user, $time);
+        if ($time) $this->rememberUser($user, $time);
         header('Location: '.URL.'accueil');
     }
 
