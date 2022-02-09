@@ -72,9 +72,13 @@ class AnimeController {
             }
             if(empty($_POST['date_debut'])) {
                 $error .= "<p>Vous devez mettre la date de début de diffusion</p>";
+            } else if(!preg_match('/^\d{4}-\d{2}-\d{2}$/', $_POST['date_debut'])) {
+                $error .= "<p>La date de début n'est pas dans un format valide</p>";
             }
             if(empty($_POST['date_fin'])) {
                 $error .= "<p>Vous devez mettre la date de fin de diffusion</p>";
+            } else if(!preg_match('/^\d{4}-\d{2}-\d{2}$/', $_POST['date_fin'])) {
+                $error .= "<p>La date de fin n'est pas dans un format valide</p>";
             }
             if($_POST['date_fin']<$_POST['date_debut']){
                 $error .= "<p>La date de fin doit etre égale ou supérieure à la date de début</p>";
