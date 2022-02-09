@@ -5,23 +5,23 @@
 
         <form action="<?=URL?>admin/anime/ajouter" method="POST" class="form-crud-add" enctype="multipart/form-data">
             <label for="nom">Nom anime :</label>
-            <input type="text" name="nom" required>
+            <input type="text" name="nom" id="nom" required>
             <label for="nom_alt">Nom alternatif anime :</label>
-            <input type="text" name="nom_alt" required>
+            <input type="text" name="nom_alt" id="nom_alt" required>
             <label for="date_debut">Date de début de diffusion :</label>
-            <input type="date" name="date_debut" required>
+            <input type="date" name="date_debut" id="date_debut" required>
             <label for="date_fin">Date de fin de diffusion :</label>
-            <input type="date" name="date_fin" required>
+            <input type="date" name="date_fin" id="date_fin" required>
             <label for="synopsis">Synopsis :</label>
-            <textarea name="synopsis" class="synopsis" required></textarea>
+            <textarea name="synopsis" class="synopsis" id="synopsis" required></textarea>
             <label for="nbr_episode">Nombre d'épisodes :</label>
-            <input type="text" name="nbr_episode" required>
+            <input type="text" name="nbr_episode" id="nbr_episode" required>
             <label for="duree_episode">Durée de chaque épisode en minutes :</label>
-            <input type="text" name="duree_episode" required>
+            <input type="text" name="duree_episode" id="duree_episode" required>
             <label for="image">Image (Ultra wide) :</label>
-            <input type="file" name="image" accept=".jpg, .jpeg, .png" required>
+            <input type="file" name="image" accept=".jpg, .jpeg, .png" id="image" required>
             <label for="image_mini">Image miniature :</label>
-            <input type="file" name="image_mini" accept=".jpg, .jpeg, .png" required>
+            <input type="file" name="image_mini" accept=".jpg, .jpeg, .png" id="image_mini" required>
             <input type="submit" value="Ajouter">
         </form>
         <button class="crud-add">Ajouter un anime</button>
