@@ -1,11 +1,11 @@
 <?php ob_start();?>
 
 <section class="login">
-    
+
     <h1 class="RO">Connexion</h1>
-    
+
     <form action="<?=URL?>connexion/connect" method="POST">
-        
+
         <label for="pseudo">Pseudo</label>
         <input type="text" name="pseudo" id="pseudo" required>
 
